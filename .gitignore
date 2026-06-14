@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.DS_Store
+.pytest_cache/
+.env
+
+# Raw per-run model answers are MY runs — others should regenerate their own.
+# The aggregated scores.parquet stays in the repo as a reference result.
+results/raw.jsonl
+results/shard_*.jsonl
+results/shard_*.log
+results/partial_multimodel.jsonl

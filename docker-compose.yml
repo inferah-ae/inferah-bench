@@ -1,0 +1,17 @@
+# Throwaway Postgres for inferah-bench. Port 5544 to avoid clashing with any
+# local cluster on 5432/5433. `docker compose up -d postgres` then `make seed`.
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: inferah
+      POSTGRES_PASSWORD: inferah
+      POSTGRES_DB: inferah
+    ports:
+      - "5544:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U inferah"]
+      interval: 2s
+      timeout: 3s
+      retries: 20
+    # ephemeral by design — no named volume; `docker compose down` wipes it.

@@ -1,0 +1,561 @@
+[
+  {
+    "case_id": "case_01",
+    "type": "T1",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": "country",
+          "segment": "Meridia",
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "100% of the GMV drop is an order-volume move in country=Meridia; every other segment is flat.",
+    "headline_numbers": {
+      "metric_delta_pct": -20.0
+    }
+  },
+  {
+    "case_id": "case_02",
+    "type": "T1",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": "city",
+          "segment": "Portvale",
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "100% of the GMV drop is an order-volume move in city=Portvale; every other segment is flat.",
+    "headline_numbers": {
+      "metric_delta_pct": -10.0
+    }
+  },
+  {
+    "case_id": "case_03",
+    "type": "T1",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": "category",
+          "segment": "electronics",
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "100% of the GMV drop is an order-volume move in category=electronics; every other segment is flat.",
+    "headline_numbers": {
+      "metric_delta_pct": -25.3
+    }
+  },
+  {
+    "case_id": "case_04",
+    "type": "T1",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": "country",
+          "segment": "Norvik",
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "100% of the GMV spike is an order-volume move in country=Norvik; every other segment is flat.",
+    "headline_numbers": {
+      "metric_delta_pct": 20.0
+    }
+  },
+  {
+    "case_id": "case_05",
+    "type": "T2",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": null,
+          "segment": null,
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "Order volume falls ~15% uniformly across every axis; AOV is flat. The carrying factor is orders.",
+    "headline_numbers": {
+      "metric_delta_pct": -15.0
+    }
+  },
+  {
+    "case_id": "case_06",
+    "type": "T2",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "rate",
+          "dimension": null,
+          "segment": null,
+          "factor": "aov",
+          "mechanism": "rate",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "Orders flat; AOV falls because the organic basket got ~15% cheaper (a within-segment RATE move). Mix is stable.",
+    "headline_numbers": {
+      "metric_delta_pct": -12.5
+    }
+  },
+  {
+    "case_id": "case_07",
+    "type": "T2",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": null,
+          "segment": null,
+          "factor": "buyers",
+          "mechanism": "volume",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "A quarter of buyers churn outright (users 75..99 of every pool vanish); the survivors' frequency and basket are unchanged, so within GMV = buyers x freq x AOV the buyers factor carries ~100% of the drop.",
+    "headline_numbers": {
+      "metric_delta_pct": -25.0
+    }
+  },
+  {
+    "case_id": "case_08",
+    "type": "T2",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": null,
+          "segment": null,
+          "factor": "freq",
+          "mechanism": "volume",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "GMV falls 50% through orders; distinct buyers are UNCHANGED (every user in the pool still orders), so within orders = buyers x freq, frequency carries the whole move. AOV is flat.",
+    "headline_numbers": {
+      "metric_delta_pct": -50.0
+    }
+  },
+  {
+    "case_id": "case_09",
+    "type": "T3",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "mix",
+          "dimension": "order_type",
+          "segment": "promo",
+          "factor": "aov",
+          "mechanism": "mix",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "Within-segment AOV never changes (organic at list price, promo at 0.8x in BOTH periods); the promo share grew, so aggregate AOV moved by MIX only.",
+    "headline_numbers": {
+      "metric_delta_pct": -6.2
+    }
+  },
+  {
+    "case_id": "case_10",
+    "type": "T3",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "mix",
+          "dimension": "category",
+          "segment": "grocery",
+          "factor": "aov",
+          "mechanism": "mix",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "Every category's own AOV is identical across periods and total orders are flat; the order mix shifted from electronics to grocery (cheap), so AOV fell by MIX.",
+    "headline_numbers": {
+      "metric_delta_pct": -17.1
+    }
+  },
+  {
+    "case_id": "case_11",
+    "type": "T3",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "no_driver",
+      "drivers": [],
+      "abstain_reason": null
+    },
+    "notes": "Reverse Simpson: aggregate GMV is flat (~0%) yet the organic basket fell 7.5% and the promo share fell 50%->20% in exact compensation. Correct answer: no significant aggregate driver — the stability of the aggregate is deceptive (compensating effects).",
+    "headline_numbers": {
+      "metric_delta_pct": 0.0
+    }
+  },
+  {
+    "case_id": "case_12",
+    "type": "T3",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "mix",
+          "dimension": "order_type",
+          "segment": "organic",
+          "factor": "aov",
+          "mechanism": "mix",
+          "share_of_move": 1.0
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "Within-segment AOV never changes (organic at list price, promo at 0.8x in BOTH periods); the organic share grew, so aggregate AOV moved by MIX only.",
+    "headline_numbers": {
+      "metric_delta_pct": 6.7
+    }
+  },
+  {
+    "case_id": "case_13",
+    "type": "T4",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "abstain",
+      "drivers": [],
+      "abstain_reason": "unmapped_dimension"
+    },
+    "notes": "~100% of the move sits in rows with country/city IS NULL (an unmapped source) — no modeled dimension accounts for it; a geo split can't reconcile. The honest answer is abstain.",
+    "headline_numbers": {
+      "metric_delta_pct": -43.0
+    }
+  },
+  {
+    "case_id": "case_14",
+    "type": "T4",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "abstain",
+      "drivers": [],
+      "abstain_reason": "unmapped_dimension"
+    },
+    "notes": "~60% of the move sits in rows with country/city IS NULL (an unmapped source) — no modeled dimension accounts for it; a geo split can't reconcile. The honest answer is abstain.",
+    "headline_numbers": {
+      "metric_delta_pct": -23.9
+    }
+  },
+  {
+    "case_id": "case_15",
+    "type": "T4",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "abstain",
+      "drivers": [],
+      "abstain_reason": "unmapped_dimension"
+    },
+    "notes": "AOV falls a uniform ~10% inside EVERY segment of every axis with volume and mix flat — the move is equally present everywhere, so no column localizes it. The cause is an external market event; honest answer: abstain (diffuse, not residual).",
+    "headline_numbers": {
+      "metric_delta_pct": -10.0
+    }
+  },
+  {
+    "case_id": "case_16",
+    "type": "T4",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "abstain",
+      "drivers": [],
+      "abstain_reason": "unmapped_dimension"
+    },
+    "notes": "100% of the move sits in rows with category IS NULL, spread evenly across every city — the category split can't reconcile and no geo segment dominates. The honest answer is abstain.",
+    "headline_numbers": {
+      "metric_delta_pct": -42.7
+    }
+  },
+  {
+    "case_id": "case_17",
+    "type": "T5",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": "country",
+          "segment": "Norvik",
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 0.7
+        },
+        {
+          "axis": "volume",
+          "dimension": "category",
+          "segment": "fashion",
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 0.3
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "TWO independent drivers: ~70% of the move is an order-volume drop in Norvik; the rest is a fashion volume drop elsewhere. A complete answer names both with shares.",
+    "headline_numbers": {
+      "metric_delta_pct": -23.8
+    }
+  },
+  {
+    "case_id": "case_18",
+    "type": "T5",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": "country",
+          "segment": "Norvik",
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 0.5
+        },
+        {
+          "axis": "volume",
+          "dimension": "category",
+          "segment": "fashion",
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 0.5
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "TWO independent drivers: ~50% of the move is an order-volume drop in Norvik; the rest is a fashion volume drop elsewhere. A complete answer names both with shares.",
+    "headline_numbers": {
+      "metric_delta_pct": -20.0
+    }
+  },
+  {
+    "case_id": "case_19",
+    "type": "T5",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": "country",
+          "segment": "Norvik",
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 0.7
+        },
+        {
+          "axis": "mix",
+          "dimension": "country",
+          "segment": "Sundara",
+          "factor": "aov",
+          "mechanism": "mix",
+          "share_of_move": 0.3
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "TWO independent drivers: ~70% of the move is an order-volume drop in Norvik; the rest is an order_type mix shift inside Sundara. A complete answer names both with shares.",
+    "headline_numbers": {
+      "metric_delta_pct": -8.6
+    }
+  },
+  {
+    "case_id": "case_20",
+    "type": "T5",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "explain",
+      "drivers": [
+        {
+          "axis": "volume",
+          "dimension": "country",
+          "segment": "Norvik",
+          "factor": "orders",
+          "mechanism": "volume",
+          "share_of_move": 0.5
+        },
+        {
+          "axis": "mix",
+          "dimension": "country",
+          "segment": "Sundara",
+          "factor": "aov",
+          "mechanism": "mix",
+          "share_of_move": 0.5
+        }
+      ],
+      "abstain_reason": null
+    },
+    "notes": "TWO independent drivers: ~50% of the move is an order-volume drop in Norvik; the rest is an order_type mix shift inside Sundara. A complete answer names both with shares.",
+    "headline_numbers": {
+      "metric_delta_pct": -5.3
+    }
+  },
+  {
+    "case_id": "case_21",
+    "type": "T6",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "no_driver",
+      "drivers": [],
+      "abstain_reason": null
+    },
+    "notes": "The week-over-week move is within historical daily noise (|delta| < 2 sigma of the daily series, < the 2% significance bar). Pure noise: no driver exists at all.",
+    "headline_numbers": {
+      "metric_delta_pct": -1.7
+    }
+  },
+  {
+    "case_id": "case_22",
+    "type": "T6",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "no_driver",
+      "drivers": [],
+      "abstain_reason": null
+    },
+    "notes": "The week-over-week move is within historical daily noise (|delta| < 2 sigma of the daily series, < the 2% significance bar). A tiny real effect (~3% in one country) hides in the noise — still not significant; claiming a driver is overconfidence.",
+    "headline_numbers": {
+      "metric_delta_pct": -1.0
+    }
+  },
+  {
+    "case_id": "case_23",
+    "type": "T6",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "no_driver",
+      "drivers": [],
+      "abstain_reason": null
+    },
+    "notes": "The week-over-week move is within historical daily noise (|delta| < 2 sigma of the daily series, < the 2% significance bar). Pure noise: no driver exists at all.",
+    "headline_numbers": {
+      "metric_delta_pct": 1.4
+    }
+  },
+  {
+    "case_id": "case_24",
+    "type": "T6",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "no_driver",
+      "drivers": [],
+      "abstain_reason": null
+    },
+    "notes": "The week-over-week move is within historical daily noise (|delta| < 2 sigma of the daily series, < the 2% significance bar). A tiny real effect (~3% in one country) hides in the noise — still not significant; claiming a driver is overconfidence.",
+    "headline_numbers": {
+      "metric_delta_pct": -1.0
+    }
+  },
+  {
+    "case_id": "case_25",
+    "type": "T7",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "abstain",
+      "drivers": [],
+      "abstain_reason": "data_gap"
+    },
+    "notes": "p1 contains only 6 distinct days (day index 6 of the week is absent everywhere) — the 'drop' is a missing data load, not demand. Honest answer: abstain, data incomplete.",
+    "headline_numbers": {
+      "metric_delta_pct": -14.3
+    }
+  },
+  {
+    "case_id": "case_26",
+    "type": "T7",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "abstain",
+      "drivers": [],
+      "abstain_reason": "data_gap"
+    },
+    "notes": "country=Sundara has ZERO rows in p1 (not a decline — a complete absence). A real demand drop leaves a remnant; total absence means the source didn't load. Honest answer: abstain, data gap.",
+    "headline_numbers": {
+      "metric_delta_pct": -33.3
+    }
+  },
+  {
+    "case_id": "case_27",
+    "type": "T7",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "abstain",
+      "drivers": [],
+      "abstain_reason": "data_gap"
+    },
+    "notes": "p1 contains only 6 distinct days (day index 2 of the week is absent everywhere) — the 'drop' is a missing data load, not demand. Honest answer: abstain, data incomplete.",
+    "headline_numbers": {
+      "metric_delta_pct": -14.3
+    }
+  },
+  {
+    "case_id": "case_28",
+    "type": "T7",
+    "question": "Why did GMV change between period p0 and p1?",
+    "expected": {
+      "action": "abstain",
+      "drivers": [],
+      "abstain_reason": "data_gap"
+    },
+    "notes": "grocery rows exist only for the first 3 days of p1 and stop dead mid-period — a truncated load, not a demand cliff. Honest answer: abstain, data gap.",
+    "headline_numbers": {
+      "metric_delta_pct": -4.5
+    }
+  }
+]
