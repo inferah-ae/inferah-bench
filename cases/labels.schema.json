@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "inferah-bench labels",
+  "type": "array",
+  "minItems": 28,
+  "maxItems": 28,
+  "items": {
+    "type": "object",
+    "required": ["case_id", "type", "question", "expected", "headline_numbers"],
+    "additionalProperties": false,
+    "properties": {
+      "case_id": {"type": "string", "pattern": "^case_\\d{2}$"},
+      "type": {"enum": ["T1", "T2", "T3", "T4", "T5", "T6", "T7"]},
+      "question": {"type": "string", "minLength": 10},
+      "notes": {"type": "string"},
+      "expected": {
+        "type": "object",
+        "required": ["action", "drivers", "abstain_reason"],
+        "additionalProperties": false,
+        "properties": {
+          "action": {"enum": ["explain", "abstain", "no_driver"]},
+          "drivers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["dimension", "segment", "factor", "mechanism",
+                           "share_of_move"],
+              "additionalProperties": false,
+              "properties": {
+                "axis": {"type": ["string", "null"]},
+                "dimension": {"type": ["string", "null"],
+                              "enum": ["country", "city", "category",
+                                       "order_type", null]},
+                "segment": {"type": ["string", "null"]},
+                "factor": {"type": ["string", "null"],
+                           "enum": ["gmv", "orders", "buyers", "freq", "aov",
+                                    null]},
+                "mechanism": {"enum": ["rate", "mix", "volume"]},
+                "share_of_move": {"type": "number", "minimum": 0,
+                                  "maximum": 1}
+              }
+            }
+          },
+          "abstain_reason": {"enum": ["unmapped_dimension", "data_gap", null]}
+        }
+      },
+      "headline_numbers": {
+        "type": "object",
+        "required": ["metric_delta_pct"],
+        "properties": {"metric_delta_pct": {"type": "number"}}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$comment": "expected.action=explain implies at least one driver; abstain implies a reason",
+      "items": {
+        "if": {"properties": {"expected": {"properties": {"action": {"const": "explain"}}}}},
+        "then": {"properties": {"expected": {"properties": {"drivers": {"minItems": 1}}}}}
+      }
+    }
+  ]
+}

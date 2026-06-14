@@ -1,0 +1,25 @@
+# inferah-bench dependencies. The deterministic decomposition engine (arm D)
+# is the public sibling repo, pulled straight from GitHub:
+#
+# arm D's pack (cases/order_pack.yaml) uses the engine's `abstain_if_diffuse`
+# rate-node option. It currently lives on the engine's feat/diffuse-abstain
+# branch (PR inferah-ae/inferah-engine#1). Pinned to that branch so the bench
+# is installable during validation; switch to @main (or a release tag) once
+# the engine PR merges.
+inferah-engine @ git+https://github.com/inferah-ae/inferah-engine.git@feat/diffuse-abstain
+
+anthropic>=0.40
+openai>=1.50          # arm A/B on OpenAI models (optional; needs OPENAI_API_KEY)
+pandas>=2.0
+sqlalchemy>=2.0
+psycopg2-binary>=2.9
+pyarrow>=14            # scores.parquet
+jsonschema>=4.0
+tqdm>=4.66
+pytest>=8.0
+# notebook (optional, for benchmark.ipynb)
+nbformat>=5.9
+nbclient>=0.9
+jupyterlab>=4.0
+matplotlib>=3.8
+jinja2>=3.1            # pandas Styler in the notebook

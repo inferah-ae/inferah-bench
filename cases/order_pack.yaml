@@ -1,0 +1,55 @@
+# Generic order-grain pack for inferah-bench arm D. ONE tree for all 28 cases
+# — built from the schema's identity (GMV = buyers x freq x AOV) and its
+# dimensions, NOT from any injected cause. Frozen before any run.
+
+measures:
+  gmv:    {kind: sum, column: gmv}
+  orders: {kind: count}
+  buyers: {kind: count, column: user_id, distinct: true}
+  freq:   {kind: ratio, numerator: orders, denominator: buyers}
+  aov:    {kind: ratio, numerator: gmv, denominator: orders}
+
+tree:
+  id: gmv
+  label: GMV
+  measure: gmv
+  relation: root
+  segment_dims: [country, city, category]
+  note: "GMV = orders x AOV; orders = buyers x frequency."
+  children:
+    - id: orders
+      label: Orders
+      measure: orders
+      relation: multiplicative
+      segment_dims: [country, city, category, order_type]
+      note: "Demand volume."
+      children:
+        - id: buyers
+          label: Buyers
+          measure: buyers
+          relation: multiplicative
+          note: "Distinct purchasing users."
+        - id: freq
+          label: Frequency
+          measure: freq
+          relation: multiplicative
+          note: "Orders per buyer."
+    - id: aov
+      label: AOV
+      measure: aov
+      relation: multiplicative
+      note: "Basket size. Split rate vs mix below."
+      children:
+        - id: aov_rate
+          label: "AOV - rate"
+          measure: aov
+          relation: rate
+          segment_dims: [order_type]
+          abstain_if_diffuse: true
+          note: "Per-segment basket actually changed (pricing / catalog)."
+        - id: aov_mix
+          label: "AOV - mix"
+          measure: aov
+          relation: mix
+          segment_dims: [order_type]
+          note: "Order mix shifted toward cheaper segments."

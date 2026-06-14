@@ -1,0 +1,4602 @@
+[
+ {
+  "case_id": "case_05",
+  "type": "T2",
+  "run_idx": 0,
+  "score": 0.6,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999988,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(0.80)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    },
+    {
+     "dimension": "order_type",
+     "segment": "promo",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.2
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "total GMV change",
+     "value": -16416
+    },
+    {
+     "label": "GMV change % ",
+     "value": -15.0
+    },
+    {
+     "label": "organic order change (Δorders)",
+     "value": -288
+    },
+    {
+     "label": "promo order change (Δorders)",
+     "value": -72
+    },
+    {
+     "label": "AOV change",
+     "value": 0
+    },
+    {
+     "label": "buyer change in organic (Δbuyers)",
+     "value": -288
+    },
+    {
+     "label": "frequency change in organic (Δfreq)",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell by 16,416 (−15.0%) entirely because order volume dropped — AOV was flat — with 80% of the lost orders coming from organic buyers who stopped purchasing (−288 buyers, unchanged frequency), and the remaining 20% from a smaller decline in promo orders (−72), spread uniformly across all countries, cities, and categories."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_05",
+  "type": "T2",
+  "run_idx": 1,
+  "score": 0.6,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999988,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(0.80)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    },
+    {
+     "dimension": "order_type",
+     "segment": "promo",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.2
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "total GMV change",
+     "value": -16416
+    },
+    {
+     "label": "GMV change % ",
+     "value": -15.0
+    },
+    {
+     "label": "organic order change (Δorders)",
+     "value": -288
+    },
+    {
+     "label": "promo order change (Δorders)",
+     "value": -72
+    },
+    {
+     "label": "AOV change",
+     "value": 0
+    },
+    {
+     "label": "buyer change in organic (Δbuyers)",
+     "value": -288
+    },
+    {
+     "label": "frequency change in organic (Δfreq)",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell by 16,416 (−15.0%) entirely because order volume dropped — AOV was flat — with 80% of the lost orders coming from organic buyers who churned (−288 buyers, unchanged purchase frequency) and the remaining 20% from promo orders, spread uniformly across all countries, cities, and categories."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_05",
+  "type": "T2",
+  "run_idx": 2,
+  "score": 0.6,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999988,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(0.80)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    },
+    {
+     "dimension": "order_type",
+     "segment": "promo",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.2
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "total GMV change",
+     "value": -16416
+    },
+    {
+     "label": "GMV change % ",
+     "value": -15.0
+    },
+    {
+     "label": "organic order change (Δorders)",
+     "value": -288
+    },
+    {
+     "label": "promo order change (Δorders)",
+     "value": -72
+    },
+    {
+     "label": "AOV change",
+     "value": 0
+    },
+    {
+     "label": "buyer change in organic (Δbuyers)",
+     "value": -288
+    },
+    {
+     "label": "frequency change in organic (Δfreq)",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell by 16,416 (−15.0%) entirely because order volume dropped — AOV was flat — with 80% of the lost orders coming from organic buyers who churned (−288 buyers, unchanged purchase frequency) and the remaining 20% from promo orders, spread uniformly across all countries, cities, and categories."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_05",
+  "type": "T2",
+  "run_idx": 3,
+  "score": 0.6,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999988,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(0.80)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    },
+    {
+     "dimension": "order_type",
+     "segment": "promo",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.2
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "total GMV change",
+     "value": -16416.0
+    },
+    {
+     "label": "total GMV change %",
+     "value": -15.0
+    },
+    {
+     "label": "orders change (organic)",
+     "value": -288.0
+    },
+    {
+     "label": "orders change (promo)",
+     "value": -72.0
+    },
+    {
+     "label": "buyers change (organic)",
+     "value": -288.0
+    },
+    {
+     "label": "freq change (organic)",
+     "value": 0.0
+    },
+    {
+     "label": "aov change",
+     "value": 0.0
+    }
+   ],
+   "narrative": "GMV fell by 16,416 (-15.0%) entirely due to a drop in order volume — not pricing — with 80% of the loss concentrated in organic orders driven by fewer buyers, while average order value and purchase frequency remained flat."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_05",
+  "type": "T2",
+  "run_idx": 4,
+  "score": 0.6,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999988,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(0.80)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    },
+    {
+     "dimension": "order_type",
+     "segment": "promo",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.2
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "total GMV change",
+     "value": -16416.0
+    },
+    {
+     "label": "total GMV change %",
+     "value": -15.0
+    },
+    {
+     "label": "orders delta (organic)",
+     "value": -288.0
+    },
+    {
+     "label": "orders delta (promo)",
+     "value": -72.0
+    },
+    {
+     "label": "buyers delta (organic)",
+     "value": -288.0
+    },
+    {
+     "label": "freq delta (organic)",
+     "value": 0.0
+    },
+    {
+     "label": "aov delta (all)",
+     "value": 0.0
+    }
+   ],
+   "narrative": "GMV fell -15.0% (-16,416) entirely due to a drop in order volume — not price — with 80% of the loss concentrated in organic orders driven by fewer buyers (-288), while average order value and purchase frequency were unchanged."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_06",
+  "type": "T2",
+  "run_idx": 0,
+  "score": 0.6,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "aov_rate",
+   "engine_factor": "aov",
+   "engine_mechanism": "rate",
+   "winner_share": 0.9999999999999996,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:aov(1.00)",
+    "mix:aov_rate(1.00)"
+   ],
+   "scope": "all · rate vs mix by order_type",
+   "leaf": "Per-segment basket actually changed (pricing / catalog)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "aov",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change (absolute)",
+     "value": -13680
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -12.5
+    },
+    {
+     "label": "Orders change",
+     "value": 0
+    },
+    {
+     "label": "AOV change (absolute)",
+     "value": -13680
+    },
+    {
+     "label": "AOV rate change (absolute)",
+     "value": -5.7
+    },
+    {
+     "label": "AOV mix change",
+     "value": 0.0
+    },
+    {
+     "label": "organic order_type weight p0",
+     "value": 0.8
+    },
+    {
+     "label": "organic order_type weight p1",
+     "value": 0.8
+    },
+    {
+     "label": "organic AOV p0",
+     "value": 47.5
+    },
+    {
+     "label": "organic AOV p1",
+     "value": 40.38
+    },
+    {
+     "label": "promo AOV p0",
+     "value": 38.0
+    },
+    {
+     "label": "promo AOV p1",
+     "value": 38.0
+    },
+    {
+     "label": "electronics GMV change",
+     "value": -5760
+    },
+    {
+     "label": "home GMV change",
+     "value": -3960
+    },
+    {
+     "label": "fashion GMV change",
+     "value": -2880
+    },
+    {
+     "label": "grocery GMV change",
+     "value": -1080
+    }
+   ],
+   "narrative": "GMV fell 12.5% (−13,680) entirely because the average order value of organic orders dropped from 47.50 to 40.38 (a −5.70 rate decline), while order volumes and order-type mix were flat — the basket-size deterioration spread across all categories, with electronics hit hardest (−5,760)."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "rate",
+     "dimension": null,
+     "segment": null,
+     "factor": "aov",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_06",
+  "type": "T2",
+  "run_idx": 1,
+  "score": 0.6,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "aov_rate",
+   "engine_factor": "aov",
+   "engine_mechanism": "rate",
+   "winner_share": 0.9999999999999996,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:aov(1.00)",
+    "mix:aov_rate(1.00)"
+   ],
+   "scope": "all · rate vs mix by order_type",
+   "leaf": "Per-segment basket actually changed (pricing / catalog)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "aov",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change (absolute)",
+     "value": -13680
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -12.5
+    },
+    {
+     "label": "orders change",
+     "value": 0
+    },
+    {
+     "label": "AOV change (absolute)",
+     "value": -13680
+    },
+    {
+     "label": "AOV rate change (absolute)",
+     "value": -5.7
+    },
+    {
+     "label": "AOV mix change",
+     "value": 0.0
+    },
+    {
+     "label": "organic order_type weight p0",
+     "value": 0.8
+    },
+    {
+     "label": "organic order_type weight p1",
+     "value": 0.8
+    },
+    {
+     "label": "organic AOV p0",
+     "value": 47.5
+    },
+    {
+     "label": "organic AOV p1",
+     "value": 40.38
+    },
+    {
+     "label": "promo AOV p0",
+     "value": 38.0
+    },
+    {
+     "label": "promo AOV p1",
+     "value": 38.0
+    },
+    {
+     "label": "electronics GMV change",
+     "value": -5760
+    },
+    {
+     "label": "home GMV change",
+     "value": -3960
+    },
+    {
+     "label": "fashion GMV change",
+     "value": -2880
+    },
+    {
+     "label": "grocery GMV change",
+     "value": -1080
+    }
+   ],
+   "narrative": "GMV fell 12.5% (−13,680) entirely because the average order value of organic orders dropped from 47.50 to 40.38 (a −5.70 rate decline), while order volumes and order-type mix were flat — the basket-size deterioration spread across all countries, cities, and categories, with electronics absorbing the largest share (−5,760)."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "rate",
+     "dimension": null,
+     "segment": null,
+     "factor": "aov",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_06",
+  "type": "T2",
+  "run_idx": 2,
+  "score": 0.6,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "aov_rate",
+   "engine_factor": "aov",
+   "engine_mechanism": "rate",
+   "winner_share": 0.9999999999999996,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:aov(1.00)",
+    "mix:aov_rate(1.00)"
+   ],
+   "scope": "all · rate vs mix by order_type",
+   "leaf": "Per-segment basket actually changed (pricing / catalog)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "aov",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change (absolute)",
+     "value": -13680
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -12.5
+    },
+    {
+     "label": "orders change",
+     "value": 0
+    },
+    {
+     "label": "AOV rate change (total)",
+     "value": -5.7
+    },
+    {
+     "label": "AOV mix change",
+     "value": 0.0
+    },
+    {
+     "label": "organic order_type weight p0",
+     "value": 0.8
+    },
+    {
+     "label": "organic order_type weight p1",
+     "value": 0.8
+    },
+    {
+     "label": "organic AOV p0",
+     "value": 47.5
+    },
+    {
+     "label": "organic AOV p1",
+     "value": 40.38
+    },
+    {
+     "label": "promo AOV p0",
+     "value": 38.0
+    },
+    {
+     "label": "promo AOV p1",
+     "value": 38.0
+    },
+    {
+     "label": "electronics GMV change",
+     "value": -5760
+    },
+    {
+     "label": "home GMV change",
+     "value": -3960
+    },
+    {
+     "label": "fashion GMV change",
+     "value": -2880
+    },
+    {
+     "label": "grocery GMV change",
+     "value": -1080
+    }
+   ],
+   "narrative": "GMV fell 12.5% (−13,680) entirely because the average order value on organic orders dropped from 47.50 to 40.38 (a genuine per-basket rate decline, not a mix shift), while order volume and the promo AOV were both flat."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "rate",
+     "dimension": null,
+     "segment": null,
+     "factor": "aov",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_06",
+  "type": "T2",
+  "run_idx": 3,
+  "score": 0.6,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "aov_rate",
+   "engine_factor": "aov",
+   "engine_mechanism": "rate",
+   "winner_share": 0.9999999999999996,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:aov(1.00)",
+    "mix:aov_rate(1.00)"
+   ],
+   "scope": "all · rate vs mix by order_type",
+   "leaf": "Per-segment basket actually changed (pricing / catalog)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "aov",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change (absolute)",
+     "value": -13680
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -12.5
+    },
+    {
+     "label": "organic AOV p0",
+     "value": 47.5
+    },
+    {
+     "label": "organic AOV p1",
+     "value": 40.38
+    },
+    {
+     "label": "organic order-type weight p0",
+     "value": 0.8
+    },
+    {
+     "label": "organic order-type weight p1",
+     "value": 0.8
+    },
+    {
+     "label": "promo AOV p0",
+     "value": 38.0
+    },
+    {
+     "label": "promo AOV p1",
+     "value": 38.0
+    },
+    {
+     "label": "orders change (absolute)",
+     "value": 0.0
+    },
+    {
+     "label": "AOV contribution to GMV change",
+     "value": -13680
+    },
+    {
+     "label": "electronics GMV change",
+     "value": -5760
+    },
+    {
+     "label": "home GMV change",
+     "value": -3960
+    },
+    {
+     "label": "fashion GMV change",
+     "value": -2880
+    },
+    {
+     "label": "grocery GMV change",
+     "value": -1080
+    }
+   ],
+   "narrative": "GMV fell -12.5% (−13,680) entirely because the average order value of organic orders dropped from 47.50 to 40.38 — a genuine per-basket rate decline, not a mix shift — while order volumes and the promo-segment AOV held flat, with the effect felt most acutely in electronics (−5,760)."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "rate",
+     "dimension": null,
+     "segment": null,
+     "factor": "aov",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_06",
+  "type": "T2",
+  "run_idx": 4,
+  "score": 0.6,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "aov_rate",
+   "engine_factor": "aov",
+   "engine_mechanism": "rate",
+   "winner_share": 0.9999999999999996,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:aov(1.00)",
+    "mix:aov_rate(1.00)"
+   ],
+   "scope": "all · rate vs mix by order_type",
+   "leaf": "Per-segment basket actually changed (pricing / catalog)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "aov",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change (absolute)",
+     "value": -13680
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -12.5
+    },
+    {
+     "label": "orders change",
+     "value": 0
+    },
+    {
+     "label": "AOV change (absolute)",
+     "value": -13680
+    },
+    {
+     "label": "AOV rate change (absolute)",
+     "value": -5.7
+    },
+    {
+     "label": "AOV mix change",
+     "value": 0.0
+    },
+    {
+     "label": "organic order_type weight p0",
+     "value": 0.8
+    },
+    {
+     "label": "organic order_type weight p1",
+     "value": 0.8
+    },
+    {
+     "label": "organic AOV p0",
+     "value": 47.5
+    },
+    {
+     "label": "organic AOV p1",
+     "value": 40.38
+    },
+    {
+     "label": "promo AOV p0",
+     "value": 38.0
+    },
+    {
+     "label": "promo AOV p1",
+     "value": 38.0
+    },
+    {
+     "label": "electronics GMV change",
+     "value": -5760
+    },
+    {
+     "label": "home GMV change",
+     "value": -3960
+    },
+    {
+     "label": "fashion GMV change",
+     "value": -2880
+    },
+    {
+     "label": "grocery GMV change",
+     "value": -1080
+    }
+   ],
+   "narrative": "GMV fell -12.5% (-13,680) entirely because the average order value on organic orders dropped from 47.50 to 40.38 (a -5.70 rate decline), while order volumes and order-type mix held flat — the basket-value deterioration spread across all countries, cities, and categories, with electronics absorbing the largest share (-5,760)."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "rate",
+     "dimension": null,
+     "segment": null,
+     "factor": "aov",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_07",
+  "type": "T2",
+  "run_idx": 0,
+  "score": 0.9,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 1.0000000000000002,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change (absolute)",
+     "value": -28500
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -25.0
+    },
+    {
+     "label": "Δorders (organic)",
+     "value": -600
+    },
+    {
+     "label": "Δbuyers (organic)",
+     "value": -600
+    },
+    {
+     "label": "ΔAOV",
+     "value": 0.0
+    },
+    {
+     "label": "Δfreq (organic)",
+     "value": 0.0
+    }
+   ],
+   "narrative": "GMV fell by $28,500 (−25%) entirely because organic-order buyers dropped by 600 across all countries and categories, with no change in order frequency or AOV."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 1.0,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_07",
+  "type": "T2",
+  "run_idx": 1,
+  "score": 0.9,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 1.0000000000000002,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change (absolute)",
+     "value": -28500
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -25.0
+    },
+    {
+     "label": "Δorders — organic",
+     "value": -600
+    },
+    {
+     "label": "Δbuyers — organic",
+     "value": -600
+    },
+    {
+     "label": "ΔAOV",
+     "value": 0.0
+    },
+    {
+     "label": "Δfreq — organic",
+     "value": 0.0
+    }
+   ],
+   "narrative": "GMV fell by 28,500 (−25%) entirely because organic-order buyers dropped by 600 across all countries and categories, with no change in order frequency, AOV, or any other order type."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 1.0,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_07",
+  "type": "T2",
+  "run_idx": 2,
+  "score": 0.9,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 1.0000000000000002,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change (absolute)",
+     "value": -28500
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -25.0
+    },
+    {
+     "label": "Δorders (organic)",
+     "value": -600
+    },
+    {
+     "label": "Δbuyers (organic)",
+     "value": -600
+    },
+    {
+     "label": "ΔAOV",
+     "value": 0.0
+    },
+    {
+     "label": "Δfreq (organic)",
+     "value": 0.0
+    }
+   ],
+   "narrative": "GMV fell by $28,500 (−25%) entirely because organic-order buyers dropped by 600 across all countries and categories, with no change in order frequency or AOV."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 1.0,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_07",
+  "type": "T2",
+  "run_idx": 3,
+  "score": 0.9,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 1.0000000000000002,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change (absolute)",
+     "value": -28500
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -25.0
+    },
+    {
+     "label": "Δorders — organic",
+     "value": -600
+    },
+    {
+     "label": "Δbuyers — organic",
+     "value": -600
+    },
+    {
+     "label": "ΔAOV",
+     "value": 0.0
+    },
+    {
+     "label": "Δfreq — organic",
+     "value": 0.0
+    }
+   ],
+   "narrative": "GMV fell by 28,500 (−25%) entirely because the number of organic-order buyers dropped by 600 — order frequency and AOV were both unchanged, and the order loss was evenly spread across all countries, cities, and categories, leaving organic channel buyer volume as the sole verified driver."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 1.0,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_07",
+  "type": "T2",
+  "run_idx": 4,
+  "score": 0.9,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 1.0000000000000002,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change (absolute)",
+     "value": -28500
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -25.0
+    },
+    {
+     "label": "Δorders (organic)",
+     "value": -600
+    },
+    {
+     "label": "Δbuyers (organic)",
+     "value": -600
+    },
+    {
+     "label": "ΔAOV",
+     "value": 0.0
+    },
+    {
+     "label": "Δfreq (organic)",
+     "value": 0.0
+    }
+   ],
+   "narrative": "GMV fell by 28,500 (−25%) entirely because organic-order buyers dropped by 600 across all countries and categories, with order frequency and AOV both unchanged."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 1.0,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_08",
+  "type": "T2",
+  "run_idx": 0,
+  "score": 0.5,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "freq",
+   "engine_factor": "freq",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999998,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:freq(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Frequency is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "freq",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change ($)",
+     "value": -57000
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -50.0
+    },
+    {
+     "label": "Δorders (organic)",
+     "value": -1200
+    },
+    {
+     "label": "Δbuyers (organic)",
+     "value": 0
+    },
+    {
+     "label": "Δfreq (organic)",
+     "value": -1200
+    },
+    {
+     "label": "ΔAOV (all)",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell $57,000 (−50%) entirely because organic-order frequency collapsed by 1,200 orders while buyer counts and AOV held flat, with the order loss spread evenly across all countries, cities, and categories, pointing to a broad-based drop in repeat-purchase rate on the organic channel rather than any single segment or product issue."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "freq",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_08",
+  "type": "T2",
+  "run_idx": 1,
+  "score": 0.5,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "freq",
+   "engine_factor": "freq",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999998,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:freq(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Frequency is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "freq",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change ($)",
+     "value": -57000
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -50.0
+    },
+    {
+     "label": "Δorders (organic)",
+     "value": -1200
+    },
+    {
+     "label": "Δbuyers (organic)",
+     "value": 0
+    },
+    {
+     "label": "Δfreq (organic)",
+     "value": -1200
+    },
+    {
+     "label": "ΔAOV (all)",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell $57,000 (−50%) entirely because organic-order frequency collapsed by 1,200 orders while buyer counts and AOV held flat, with the order loss spread uniformly across all countries, cities, and categories."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "freq",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_08",
+  "type": "T2",
+  "run_idx": 2,
+  "score": 0.5,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "freq",
+   "engine_factor": "freq",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999998,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:freq(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Frequency is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "freq",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change ($)",
+     "value": -57000
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -50.0
+    },
+    {
+     "label": "Δorders (organic)",
+     "value": -1200
+    },
+    {
+     "label": "Δbuyers (organic)",
+     "value": 0
+    },
+    {
+     "label": "Δfreq (organic)",
+     "value": -1200
+    },
+    {
+     "label": "ΔAOV (all)",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell $57,000 (−50%) entirely because organic-order frequency collapsed by 1,200 orders while buyer counts and AOV held flat, with the order loss spread uniformly across all countries, cities, and categories."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "freq",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_08",
+  "type": "T2",
+  "run_idx": 3,
+  "score": 0.5,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "freq",
+   "engine_factor": "freq",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999998,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:freq(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Frequency is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "freq",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change ($)",
+     "value": -57000
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -50.0
+    },
+    {
+     "label": "Δorders (organic)",
+     "value": -1200
+    },
+    {
+     "label": "Δbuyers (organic)",
+     "value": 0
+    },
+    {
+     "label": "Δfreq (organic)",
+     "value": -1200
+    },
+    {
+     "label": "ΔAOV (all)",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell $57,000 (−50%) entirely because organic-order frequency collapsed by 1,200 orders while buyer counts and AOV held flat, with the order loss spread uniformly across all three countries, all six cities, and all four categories."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "freq",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_08",
+  "type": "T2",
+  "run_idx": 4,
+  "score": 0.5,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "freq",
+   "engine_factor": "freq",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999998,
+   "path": [
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "segment:organic(1.00)",
+    "segment:Norvik(0.33)",
+    "segment:Brimley(0.17)",
+    "segment:home(0.25)",
+    "factor:freq(1.00)"
+   ],
+   "scope": "all ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Frequency is the dominant driver (all ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "freq",
+     "mechanism": "rate",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "GMV change ($)",
+     "value": -57000
+    },
+    {
+     "label": "GMV change (%)",
+     "value": -50.0
+    },
+    {
+     "label": "Δorders (organic)",
+     "value": -1200
+    },
+    {
+     "label": "Δbuyers (organic)",
+     "value": 0
+    },
+    {
+     "label": "Δfreq (organic)",
+     "value": -1200
+    },
+    {
+     "label": "ΔAOV (all)",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell $57,000 (−50%) entirely because organic-order frequency collapsed by 1,200 orders while buyer counts and AOV held flat, with the order loss spread evenly across all countries, cities, and categories, pointing to a broad-based drop in repeat-purchase rate on the organic channel rather than any single segment or product issue."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": null,
+     "segment": null,
+     "factor": "freq",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.0,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_17",
+  "type": "T5",
+  "run_idx": 0,
+  "score": 0.5,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999998,
+   "path": [
+    "segment:Norvik(0.70)",
+    "segment:Brimley(0.50)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:organic(0.80)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -26080
+    },
+    {
+     "label": "GMV change % ",
+     "value": -23.8
+    },
+    {
+     "label": "Norvik GMV delta",
+     "value": -18240
+    },
+    {
+     "label": "Norvik share of GMV move",
+     "value": 0.7
+    },
+    {
+     "label": "Norvik orders delta",
+     "value": -18240
+    },
+    {
+     "label": "Norvik AOV delta",
+     "value": 0.0
+    },
+    {
+     "label": "Norvik organic orders delta",
+     "value": -320
+    },
+    {
+     "label": "Norvik organic buyers delta",
+     "value": -320
+    },
+    {
+     "label": "Norvik organic freq delta",
+     "value": 0.0
+    },
+    {
+     "label": "Organic share of Norvik orders move",
+     "value": 0.8
+    }
+   ],
+   "narrative": "GMV fell 23.8% (−26,080) primarily because Norvik — which accounts for 70% of the move (−18,240 GMV) — lost 320 organic buyers, with purchase frequency and AOV both unchanged, meaning the entire decline traces to fewer unique customers placing organic orders in that country."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "axis": "volume",
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": false,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_17",
+  "type": "T5",
+  "run_idx": 1,
+  "score": 0.5,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999998,
+   "path": [
+    "segment:Norvik(0.70)",
+    "segment:Brimley(0.50)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:organic(0.80)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -26080
+    },
+    {
+     "label": "GMV change % ",
+     "value": -23.8
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -18240
+    },
+    {
+     "label": "Norvik share of GMV move",
+     "value": 0.7
+    },
+    {
+     "label": "Norvik orders change",
+     "value": -18240
+    },
+    {
+     "label": "Norvik AOV change",
+     "value": 0.0
+    },
+    {
+     "label": "Norvik organic orders change",
+     "value": -320
+    },
+    {
+     "label": "Norvik promo orders change",
+     "value": -80
+    },
+    {
+     "label": "Norvik organic buyers change",
+     "value": -320
+    },
+    {
+     "label": "Norvik organic freq change",
+     "value": 0.0
+    },
+    {
+     "label": "Organic share of Norvik orders move",
+     "value": 0.8
+    }
+   ],
+   "narrative": "GMV fell 23.8% (−26,080) primarily because Norvik — which accounts for 70% of the move (−18,240) — lost 320 organic buyers, collapsing order volume with no offsetting change in AOV or purchase frequency."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "axis": "volume",
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": false,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_17",
+  "type": "T5",
+  "run_idx": 2,
+  "score": 0.5,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999998,
+   "path": [
+    "segment:Norvik(0.70)",
+    "segment:Brimley(0.50)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:organic(0.80)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -26080
+    },
+    {
+     "label": "GMV change % ",
+     "value": -23.8
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -18240
+    },
+    {
+     "label": "Norvik share of GMV move",
+     "value": 0.7
+    },
+    {
+     "label": "Norvik orders change",
+     "value": -18240
+    },
+    {
+     "label": "Norvik AOV change",
+     "value": 0.0
+    },
+    {
+     "label": "Norvik organic orders change",
+     "value": -320
+    },
+    {
+     "label": "Norvik promo orders change",
+     "value": -80
+    },
+    {
+     "label": "Norvik organic buyers change",
+     "value": -320
+    },
+    {
+     "label": "Norvik organic freq change",
+     "value": 0.0
+    },
+    {
+     "label": "Organic share of Norvik orders move",
+     "value": 0.8
+    }
+   ],
+   "narrative": "GMV fell 23.8% (−26,080) primarily because Norvik — which accounts for 70% of the move (−18,240) — lost 320 organic buyers, collapsing order volume with no offsetting change in AOV or purchase frequency."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "axis": "volume",
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": false,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_17",
+  "type": "T5",
+  "run_idx": 3,
+  "score": 0.5,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999998,
+   "path": [
+    "segment:Norvik(0.70)",
+    "segment:Brimley(0.50)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:organic(0.80)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -26080
+    },
+    {
+     "label": "GMV change % ",
+     "value": -23.8
+    },
+    {
+     "label": "Norvik GMV delta",
+     "value": -18240
+    },
+    {
+     "label": "Norvik share of total GMV move",
+     "value": 0.7
+    },
+    {
+     "label": "Norvik orders delta",
+     "value": -18240
+    },
+    {
+     "label": "Norvik AOV delta",
+     "value": 0.0
+    },
+    {
+     "label": "Norvik organic orders delta",
+     "value": -320
+    },
+    {
+     "label": "Norvik organic buyers delta",
+     "value": -320
+    },
+    {
+     "label": "Norvik organic freq delta",
+     "value": 0.0
+    },
+    {
+     "label": "Organic share of Norvik orders move",
+     "value": 0.8
+    },
+    {
+     "label": "Meridia GMV delta",
+     "value": -3920
+    },
+    {
+     "label": "Sundara GMV delta",
+     "value": -3920
+    }
+   ],
+   "narrative": "GMV fell 23.8% (-26,080) primarily because Norvik (70% of the move, -18,240 GMV) lost 320 organic buyers whose purchase frequency was unchanged, collapsing organic order volume with no offsetting change in AOV."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "axis": "volume",
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": false,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_17",
+  "type": "T5",
+  "run_idx": 4,
+  "score": 0.5,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999998,
+   "path": [
+    "segment:Norvik(0.70)",
+    "segment:Brimley(0.50)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:organic(0.80)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -26080
+    },
+    {
+     "label": "GMV change % ",
+     "value": -23.8
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -18240
+    },
+    {
+     "label": "Norvik share of total GMV change",
+     "value": 0.7
+    },
+    {
+     "label": "Norvik orders change",
+     "value": -400
+    },
+    {
+     "label": "Norvik AOV change",
+     "value": 0.0
+    },
+    {
+     "label": "Norvik organic orders change",
+     "value": -320
+    },
+    {
+     "label": "Norvik organic buyers change",
+     "value": -320
+    },
+    {
+     "label": "Norvik organic freq change",
+     "value": 0.0
+    },
+    {
+     "label": "Organic share of Norvik orders change",
+     "value": 0.8
+    }
+   ],
+   "narrative": "GMV fell 23.8% (-26,080) primarily because Norvik (70% of the move) lost 400 orders entirely due to fewer buyers placing organic orders, with AOV and purchase frequency unchanged."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "axis": "volume",
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": false,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_18",
+  "type": "T5",
+  "run_idx": 0,
+  "score": 0.5,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999996,
+   "path": [
+    "segment:Norvik(0.50)",
+    "segment:Brimley(0.25)",
+    "segment:fashion(0.60)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "factor:orders(1.00)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "segment:organic(0.80)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ category=fashion ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ category=fashion ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.6
+    },
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    },
+    {
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.41
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -21856
+    },
+    {
+     "label": "Total GMV change (%)",
+     "value": -20.0
+    },
+    {
+     "label": "Fashion GMV change",
+     "value": -13216
+    },
+    {
+     "label": "Fashion share of GMV move",
+     "value": 0.6
+    },
+    {
+     "label": "Fashion orders change (attributed to orders factor)",
+     "value": -13205.9
+    },
+    {
+     "label": "Fashion AOV change",
+     "value": -10.1
+    },
+    {
+     "label": "Fashion organic order change",
+     "value": -276
+    },
+    {
+     "label": "Fashion organic buyer change (leaf driver)",
+     "value": -276
+    },
+    {
+     "label": "Fashion organic freq change",
+     "value": 0.0
+    },
+    {
+     "label": "Sundara fashion organic buyer change",
+     "value": -114
+    },
+    {
+     "label": "Meridia fashion organic buyer change",
+     "value": -114
+    },
+    {
+     "label": "Norvik fashion organic buyer change",
+     "value": -48
+    }
+   ],
+   "narrative": "GMV fell 20% (-21,856) primarily because the fashion category lost 276 organic buyers — concentrated in Sundara and Meridia — with purchase frequency unchanged, while AOV was essentially flat, making buyer volume loss the singular root cause."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "axis": "volume",
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": false,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_18",
+  "type": "T5",
+  "run_idx": 1,
+  "score": 0.5,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999996,
+   "path": [
+    "segment:Norvik(0.50)",
+    "segment:Brimley(0.25)",
+    "segment:fashion(0.60)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "factor:orders(1.00)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "segment:organic(0.80)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ category=fashion ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ category=fashion ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.6
+    },
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    },
+    {
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.41
+    },
+    {
+     "dimension": "country",
+     "segment": "Meridia",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.41
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change ($)",
+     "value": -21856
+    },
+    {
+     "label": "Total GMV change (%)",
+     "value": -20.0
+    },
+    {
+     "label": "Fashion GMV change ($)",
+     "value": -13216
+    },
+    {
+     "label": "Fashion share of total GMV move",
+     "value": 0.6
+    },
+    {
+     "label": "Fashion orders change ($-equivalent)",
+     "value": -13205.9
+    },
+    {
+     "label": "Fashion AOV change ($-equivalent)",
+     "value": -10.1
+    },
+    {
+     "label": "Organic orders change (fashion)",
+     "value": -276
+    },
+    {
+     "label": "Promo orders change (fashion)",
+     "value": -68
+    },
+    {
+     "label": "Organic share of fashion orders move",
+     "value": 0.8
+    },
+    {
+     "label": "Buyers change (fashion, organic)",
+     "value": -276
+    },
+    {
+     "label": "Frequency change (fashion, organic)",
+     "value": 0.0
+    },
+    {
+     "label": "Sundara orders change (fashion, organic)",
+     "value": -114
+    },
+    {
+     "label": "Meridia orders change (fashion, organic)",
+     "value": -114
+    },
+    {
+     "label": "Norvik orders change (fashion, organic)",
+     "value": -48
+    }
+   ],
+   "narrative": "GMV fell 20% (-$21,856) almost entirely because the fashion category lost 276 organic buyers — concentrated in Sundara and Meridia — with no compensating change in purchase frequency or AOV."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "axis": "volume",
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": false,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_18",
+  "type": "T5",
+  "run_idx": 2,
+  "score": 0.5,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999996,
+   "path": [
+    "segment:Norvik(0.50)",
+    "segment:Brimley(0.25)",
+    "segment:fashion(0.60)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "factor:orders(1.00)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "segment:organic(0.80)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ category=fashion ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ category=fashion ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.6
+    },
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    },
+    {
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.41
+    },
+    {
+     "dimension": "country",
+     "segment": "Meridia",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.41
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change ($)",
+     "value": -21856
+    },
+    {
+     "label": "Total GMV change (%)",
+     "value": -20.0
+    },
+    {
+     "label": "Fashion GMV change ($)",
+     "value": -13216
+    },
+    {
+     "label": "Fashion share of total GMV move",
+     "value": 0.6
+    },
+    {
+     "label": "Fashion orders change ($-equivalent)",
+     "value": -13205.9
+    },
+    {
+     "label": "Fashion AOV change ($-equivalent)",
+     "value": -10.1
+    },
+    {
+     "label": "Organic orders change (fashion)",
+     "value": -276
+    },
+    {
+     "label": "Promo orders change (fashion)",
+     "value": -68
+    },
+    {
+     "label": "Organic share of fashion orders move",
+     "value": 0.8
+    },
+    {
+     "label": "Buyers change (fashion, organic)",
+     "value": -276
+    },
+    {
+     "label": "Frequency change (fashion, organic)",
+     "value": 0.0
+    },
+    {
+     "label": "Sundara orders change (fashion, organic)",
+     "value": -114
+    },
+    {
+     "label": "Meridia orders change (fashion, organic)",
+     "value": -114
+    },
+    {
+     "label": "Norvik orders change (fashion, organic)",
+     "value": -48
+    }
+   ],
+   "narrative": "GMV fell 20% (-$21,856) almost entirely because the fashion category lost 276 organic buyers — concentrated in Sundara and Meridia — with no compensating change in purchase frequency or AOV."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "axis": "volume",
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": false,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_18",
+  "type": "T5",
+  "run_idx": 3,
+  "score": 0.5,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999996,
+   "path": [
+    "segment:Norvik(0.50)",
+    "segment:Brimley(0.25)",
+    "segment:fashion(0.60)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "factor:orders(1.00)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "segment:organic(0.80)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ category=fashion ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ category=fashion ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.6
+    },
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    },
+    {
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.41
+    },
+    {
+     "dimension": "country",
+     "segment": "Meridia",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.41
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change (absolute)",
+     "value": -21856
+    },
+    {
+     "label": "Total GMV change (%)",
+     "value": -20.0
+    },
+    {
+     "label": "Fashion GMV change",
+     "value": -13216
+    },
+    {
+     "label": "Fashion share of total GMV move",
+     "value": 0.6
+    },
+    {
+     "label": "Fashion orders change (attributed to orders factor)",
+     "value": -13205.9
+    },
+    {
+     "label": "Fashion AOV change",
+     "value": -10.1
+    },
+    {
+     "label": "Organic orders change within fashion",
+     "value": -276
+    },
+    {
+     "label": "Organic share of fashion orders move",
+     "value": 0.8
+    },
+    {
+     "label": "Buyers change (organic fashion)",
+     "value": -276
+    },
+    {
+     "label": "Frequency change (organic fashion)",
+     "value": 0.0
+    },
+    {
+     "label": "Sundara orders change (fashion)",
+     "value": -142
+    },
+    {
+     "label": "Meridia orders change (fashion)",
+     "value": -142
+    },
+    {
+     "label": "Norvik orders change (fashion)",
+     "value": -60
+    }
+   ],
+   "narrative": "GMV fell 20% (-21,856) primarily because the fashion category lost 276 organic buyers — concentrated in Sundara and Meridia — collapsing fashion orders and accounting for ~60% of the total GMV decline, with AOV essentially unchanged."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "axis": "volume",
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": false,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_18",
+  "type": "T5",
+  "run_idx": 4,
+  "score": 0.5,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999996,
+   "path": [
+    "segment:Norvik(0.50)",
+    "segment:Brimley(0.25)",
+    "segment:fashion(0.60)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "factor:orders(1.00)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "segment:organic(0.80)",
+    "segment:Sundara(0.41)",
+    "segment:Thornfield(0.21)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ category=fashion ∩ order_type=organic · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ category=fashion ∩ order_type=organic)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.6
+    },
+    {
+     "dimension": "order_type",
+     "segment": "organic",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.8
+    },
+    {
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.41
+    },
+    {
+     "dimension": "country",
+     "segment": "Meridia",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.41
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change ($)",
+     "value": -21856
+    },
+    {
+     "label": "Total GMV change (%)",
+     "value": -20.0
+    },
+    {
+     "label": "Fashion GMV change ($)",
+     "value": -13216
+    },
+    {
+     "label": "Fashion share of total GMV move",
+     "value": 0.6
+    },
+    {
+     "label": "Fashion orders change ($-equivalent)",
+     "value": -13205.9
+    },
+    {
+     "label": "Fashion AOV change ($-equivalent)",
+     "value": -10.1
+    },
+    {
+     "label": "Organic orders change (fashion)",
+     "value": -276
+    },
+    {
+     "label": "Promo orders change (fashion)",
+     "value": -68
+    },
+    {
+     "label": "Organic share of fashion orders move",
+     "value": 0.8
+    },
+    {
+     "label": "Buyers change (fashion, organic)",
+     "value": -276
+    },
+    {
+     "label": "Frequency change (fashion, organic)",
+     "value": 0.0
+    },
+    {
+     "label": "Sundara orders change (fashion, organic)",
+     "value": -114
+    },
+    {
+     "label": "Meridia orders change (fashion, organic)",
+     "value": -114
+    },
+    {
+     "label": "Norvik orders change (fashion, organic)",
+     "value": -48
+    }
+   ],
+   "narrative": "GMV fell 20% (-$21,856) almost entirely because the fashion category lost 276 organic buyers — concentrated in Sundara and Meridia — with no compensating change in purchase frequency or AOV."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "axis": "volume",
+     "dimension": "category",
+     "segment": "fashion",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": false,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_19",
+  "type": "T5",
+  "run_idx": 0,
+  "score": 0.7,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999994,
+   "path": [
+    "segment:Norvik(0.70)",
+    "segment:Brimley(0.50)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:promo(0.50)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -8816
+    },
+    {
+     "label": "GMV change % ",
+     "value": -8.6
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -6156
+    },
+    {
+     "label": "Norvik share of total GMV move",
+     "value": 0.7
+    },
+    {
+     "label": "Sundara GMV change",
+     "value": -2660
+    },
+    {
+     "label": "Norvik orders change",
+     "value": -144
+    },
+    {
+     "label": "Norvik buyers change",
+     "value": -144
+    },
+    {
+     "label": "Norvik freq change",
+     "value": 0
+    },
+    {
+     "label": "Norvik AOV change",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell by 8,816 (−8.6%) primarily because Norvik lost 144 buyers (with frequency and AOV both flat), which drove all of Norvik's −6,156 GMV decline — 70% of the total move — with the remaining 30% spread across Sundara."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "axis": "mix",
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "aov",
+     "mechanism": "mix",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_19",
+  "type": "T5",
+  "run_idx": 1,
+  "score": 0.8,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999994,
+   "path": [
+    "segment:Norvik(0.70)",
+    "segment:Brimley(0.50)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:promo(0.50)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -8816
+    },
+    {
+     "label": "GMV change % ",
+     "value": -8.6
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -6156
+    },
+    {
+     "label": "Sundara GMV change",
+     "value": -2660
+    },
+    {
+     "label": "Norvik share of GMV move",
+     "value": 0.7
+    },
+    {
+     "label": "Norvik orders change",
+     "value": -144
+    },
+    {
+     "label": "Norvik AOV change",
+     "value": 0
+    },
+    {
+     "label": "Norvik buyers change",
+     "value": -144
+    },
+    {
+     "label": "Norvik frequency change",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell 8.6% (−8,816) primarily because Norvik lost 144 buyers (70% of the total move), with order frequency and AOV unchanged, and the remaining 30% of the decline spread across Sundara."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "axis": "mix",
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "aov",
+     "mechanism": "mix",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_19",
+  "type": "T5",
+  "run_idx": 2,
+  "score": 0.7,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999994,
+   "path": [
+    "segment:Norvik(0.70)",
+    "segment:Brimley(0.50)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:promo(0.50)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -8816
+    },
+    {
+     "label": "GMV change % ",
+     "value": -8.6
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -6156
+    },
+    {
+     "label": "Norvik share of total GMV move",
+     "value": 0.7
+    },
+    {
+     "label": "Sundara GMV change",
+     "value": -2660
+    },
+    {
+     "label": "Norvik order change",
+     "value": -144
+    },
+    {
+     "label": "Norvik buyer change",
+     "value": -144
+    },
+    {
+     "label": "Norvik AOV change",
+     "value": 0
+    },
+    {
+     "label": "Norvik frequency change",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell 8.6% (−8,816) primarily because Norvik lost 144 buyers, collapsing orders by 144 with no offsetting change in AOV or purchase frequency, and Norvik alone accounts for 70% of the total decline."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "axis": "mix",
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "aov",
+     "mechanism": "mix",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_19",
+  "type": "T5",
+  "run_idx": 3,
+  "score": 0.7,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999994,
+   "path": [
+    "segment:Norvik(0.70)",
+    "segment:Brimley(0.50)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:promo(0.50)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -8816
+    },
+    {
+     "label": "GMV change % ",
+     "value": -8.6
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -6156
+    },
+    {
+     "label": "Sundara GMV change",
+     "value": -2660
+    },
+    {
+     "label": "Norvik share of total GMV move",
+     "value": 0.7
+    },
+    {
+     "label": "Norvik orders change",
+     "value": -144
+    },
+    {
+     "label": "Norvik buyers change",
+     "value": -144
+    },
+    {
+     "label": "Norvik freq change",
+     "value": 0
+    },
+    {
+     "label": "Norvik AOV change",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell 8.6% (-8,816) primarily because Norvik (70% of the move, -6,156 GMV) lost 144 buyers, with purchase frequency and AOV both unchanged, making buyer volume loss the single root cause."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "axis": "mix",
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "aov",
+     "mechanism": "mix",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_19",
+  "type": "T5",
+  "run_idx": 4,
+  "score": 0.7,
+  "bucket": "label_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 0.9999999999999994,
+   "path": [
+    "segment:Norvik(0.70)",
+    "segment:Brimley(0.50)",
+    "segment:electronics(0.42)",
+    "factor:orders(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:promo(0.50)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "dimension": null,
+     "segment": null,
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 1.0
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -8816
+    },
+    {
+     "label": "GMV change % ",
+     "value": -8.6
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -6156
+    },
+    {
+     "label": "Norvik share of total GMV move",
+     "value": 0.7
+    },
+    {
+     "label": "Sundara GMV change",
+     "value": -2660
+    },
+    {
+     "label": "Norvik orders change",
+     "value": -144
+    },
+    {
+     "label": "Norvik buyers change",
+     "value": -144
+    },
+    {
+     "label": "Norvik freq change",
+     "value": 0
+    },
+    {
+     "label": "Norvik AOV change",
+     "value": 0
+    }
+   ],
+   "narrative": "GMV fell by 8,816 (−8.6%) primarily because Norvik lost 144 buyers, collapsing order volume by 144 orders with no offsetting change in purchase frequency or AOV, and this buyer-loss in Norvik accounts for 70% of the total GMV decline."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.7
+    },
+    {
+     "axis": "mix",
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "aov",
+     "mechanism": "mix",
+     "share_of_move": 0.3
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": true,
+   "sum_share_pass": false
+  }
+ },
+ {
+  "case_id": "case_20",
+  "type": "T5",
+  "run_idx": 0,
+  "score": 0.8,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 1.0000000000000069,
+   "path": [
+    "segment:Norvik(0.51)",
+    "segment:Brimley(0.25)",
+    "segment:electronics(0.42)",
+    "factor:orders(0.50)",
+    "segment:Norvik(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:promo(0.50)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -5396
+    },
+    {
+     "label": "GMV change % ",
+     "value": -5.3
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -2736
+    },
+    {
+     "label": "Sundara GMV change",
+     "value": -2660
+    },
+    {
+     "label": "Norvik order change",
+     "value": -64
+    },
+    {
+     "label": "Norvik buyer change",
+     "value": -64
+    },
+    {
+     "label": "Norvik frequency change",
+     "value": 0
+    },
+    {
+     "label": "Orders contribution to GMV change",
+     "value": -2699.56
+    },
+    {
+     "label": "AOV contribution to GMV change",
+     "value": -2696.44
+    }
+   ],
+   "narrative": "GMV fell 5.3% (-5,396) primarily because Norvik lost 64 buyers period-over-period, collapsing order volume by 64 orders with no offsetting change in purchase frequency, and this buyer-loss was spread evenly across both Aldgate and Brimley and all product categories."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "axis": "mix",
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "aov",
+     "mechanism": "mix",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_20",
+  "type": "T5",
+  "run_idx": 1,
+  "score": 0.8,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 1.0000000000000069,
+   "path": [
+    "segment:Norvik(0.51)",
+    "segment:Brimley(0.25)",
+    "segment:electronics(0.42)",
+    "factor:orders(0.50)",
+    "segment:Norvik(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:promo(0.50)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -5396
+    },
+    {
+     "label": "GMV change % ",
+     "value": -5.3
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -2736
+    },
+    {
+     "label": "Sundara GMV change",
+     "value": -2660
+    },
+    {
+     "label": "Norvik orders change",
+     "value": -64
+    },
+    {
+     "label": "Norvik buyers change",
+     "value": -64
+    },
+    {
+     "label": "Norvik freq change",
+     "value": 0
+    },
+    {
+     "label": "Orders contribution to GMV change",
+     "value": -2699.56
+    },
+    {
+     "label": "AOV contribution to GMV change",
+     "value": -2696.44
+    }
+   ],
+   "narrative": "GMV fell by 5,396 (−5.3%) almost entirely because Norvik lost 64 buyers period-over-period, collapsing order volume by 64 orders with no offsetting change in purchase frequency."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "axis": "mix",
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "aov",
+     "mechanism": "mix",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_20",
+  "type": "T5",
+  "run_idx": 2,
+  "score": 0.8,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 1.0000000000000069,
+   "path": [
+    "segment:Norvik(0.51)",
+    "segment:Brimley(0.25)",
+    "segment:electronics(0.42)",
+    "factor:orders(0.50)",
+    "segment:Norvik(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:promo(0.50)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -5396
+    },
+    {
+     "label": "GMV change % ",
+     "value": -5.3
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -2736
+    },
+    {
+     "label": "Sundara GMV change",
+     "value": -2660
+    },
+    {
+     "label": "Norvik order change",
+     "value": -64
+    },
+    {
+     "label": "Norvik buyer change",
+     "value": -64
+    },
+    {
+     "label": "Norvik frequency change",
+     "value": 0
+    },
+    {
+     "label": "Orders contribution to GMV change",
+     "value": -2699.56
+    },
+    {
+     "label": "AOV contribution to GMV change",
+     "value": -2696.44
+    }
+   ],
+   "narrative": "GMV fell by 5,396 (−5.3%) primarily because Norvik lost 64 buyers — with purchase frequency unchanged — driving the entire orders decline concentrated in that country, while AOV contributed roughly equally to the overall drop."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "axis": "mix",
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "aov",
+     "mechanism": "mix",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_20",
+  "type": "T5",
+  "run_idx": 3,
+  "score": 0.8,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 1.0000000000000069,
+   "path": [
+    "segment:Norvik(0.51)",
+    "segment:Brimley(0.25)",
+    "segment:electronics(0.42)",
+    "factor:orders(0.50)",
+    "segment:Norvik(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:promo(0.50)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -5396
+    },
+    {
+     "label": "GMV change % ",
+     "value": -5.3
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -2736
+    },
+    {
+     "label": "Sundara GMV change",
+     "value": -2660
+    },
+    {
+     "label": "Norvik order change",
+     "value": -64
+    },
+    {
+     "label": "Norvik buyer change",
+     "value": -64
+    },
+    {
+     "label": "Norvik frequency change",
+     "value": 0
+    },
+    {
+     "label": "Orders contribution to GMV change",
+     "value": -2699.56
+    },
+    {
+     "label": "AOV contribution to GMV change",
+     "value": -2696.44
+    }
+   ],
+   "narrative": "GMV fell 5.3% (-5,396) primarily because Norvik lost 64 buyers period-over-period, collapsing order volume by 64 orders with no offsetting change in purchase frequency, and this buyer-loss was the single verified root cause concentrated entirely within Norvik."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "axis": "mix",
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "aov",
+     "mechanism": "mix",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ },
+ {
+  "case_id": "case_20",
+  "type": "T5",
+  "run_idx": 4,
+  "score": 0.8,
+  "bucket": "narrator_error",
+  "engine": {
+   "abstained": false,
+   "significant": true,
+   "terminal_winner": "buyers",
+   "engine_factor": "buyers",
+   "engine_mechanism": "volume",
+   "winner_share": 1.0000000000000069,
+   "path": [
+    "segment:Norvik(0.51)",
+    "segment:Brimley(0.25)",
+    "segment:electronics(0.42)",
+    "factor:orders(0.50)",
+    "segment:Norvik(1.00)",
+    "segment:Brimley(0.50)",
+    "segment:home(0.25)",
+    "segment:promo(0.50)",
+    "factor:buyers(1.00)"
+   ],
+   "scope": "all ∩ country=Norvik · Buyers x Frequency",
+   "leaf": "Buyers is the dominant driver (all ∩ country=Norvik)."
+  },
+  "answer": {
+   "action": "explain",
+   "drivers": [
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "buyers",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null,
+   "cited_numbers": [
+    {
+     "label": "Total GMV change",
+     "value": -5396
+    },
+    {
+     "label": "GMV change % ",
+     "value": -5.3
+    },
+    {
+     "label": "Norvik GMV change",
+     "value": -2736
+    },
+    {
+     "label": "Sundara GMV change",
+     "value": -2660
+    },
+    {
+     "label": "Norvik order change",
+     "value": -64
+    },
+    {
+     "label": "Norvik buyer change",
+     "value": -64
+    },
+    {
+     "label": "Norvik freq change",
+     "value": 0
+    },
+    {
+     "label": "Orders contribution to GMV change",
+     "value": -2699.56
+    },
+    {
+     "label": "AOV contribution to GMV change",
+     "value": -2696.44
+    }
+   ],
+   "narrative": "GMV fell by 5,396 (−5.3%) primarily because Norvik lost 64 buyers period-over-period, collapsing order volume by 64 orders with no compensating change in purchase frequency or AOV."
+  },
+  "expected": {
+   "action": "explain",
+   "drivers": [
+    {
+     "axis": "volume",
+     "dimension": "country",
+     "segment": "Norvik",
+     "factor": "orders",
+     "mechanism": "volume",
+     "share_of_move": 0.5
+    },
+    {
+     "axis": "mix",
+     "dimension": "country",
+     "segment": "Sundara",
+     "factor": "aov",
+     "mechanism": "mix",
+     "share_of_move": 0.5
+    }
+   ],
+   "abstain_reason": null
+  },
+  "loss": {
+   "action_correct": true,
+   "driver_score": 0.5,
+   "grounding_pass": true,
+   "sum_share_pass": true
+  }
+ }
+]
