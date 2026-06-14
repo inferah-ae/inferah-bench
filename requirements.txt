@@ -2,11 +2,10 @@
 # is the public sibling repo, pulled straight from GitHub:
 #
 # arm D's pack (cases/order_pack.yaml) uses the engine's `abstain_if_diffuse`
-# rate-node option. It currently lives on the engine's feat/diffuse-abstain
-# branch (PR inferah-ae/inferah-engine#1). Pinned to that branch so the bench
-# is installable during validation; switch to @main (or a release tag) once
-# the engine PR merges.
-inferah-engine @ git+https://github.com/inferah-ae/inferah-engine.git@feat/diffuse-abstain
+# rate-node option, merged to the engine's default branch
+# (inferah-ae/inferah-engine#1). Pin to a release tag for full reproducibility
+# once the engine cuts one.
+inferah-engine @ git+https://github.com/inferah-ae/inferah-engine.git@main
 
 anthropic>=0.40
 openai>=1.50          # arm A/B on OpenAI models (optional; needs OPENAI_API_KEY)
