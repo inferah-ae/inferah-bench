@@ -1,20 +1,14 @@
 # Publish checklist — inferah-bench
 
-Run through this before `git init` + first push. The tree is structured so
-that publishing is one `git init && git add . && git commit` away; nothing
-here performs any git action.
+Status of the published repo (both repos are live; this tracks the state).
 
-## ⚠️ BLOCKER — engine dependency must be pushed first
-- [ ] **The public `inferah-engine` repo does NOT yet contain the
-  `abstain_if_diffuse` rate-node feature** that arm D's pack
-  (`cases/order_pack.yaml`) relies on (verified: `git show HEAD` on the engine
-  has 0 matches; the change lives only in a local working tree). A fresh
-  `pip install -r requirements.txt` would pull an engine that **breaks arm D**.
-  Before publishing: push the engine feature, tag it, and pin
-  `requirements.txt` to that tag/commit. The bench code itself is complete and
-  runs against a local engine checkout that has the feature (verified in a
-  clean venv with no anthropic SDK: `make seed && make score && make report`
-  reproduce the full table).
+## Engine dependency — RESOLVED
+- [x] The `abstain_if_diffuse` rate-node feature that arm D's pack relies on
+  is merged to `inferah-engine` and tagged **`v0.3.0`**
+  (inferah-ae/inferah-engine#1, #2). `requirements.txt` pins
+  `inferah-engine @ ...@v0.3.0`, so a fresh `pip install -r requirements.txt`
+  pulls an immutable engine commit and arm D works. Verified by a clean-clone
+  install + `make seed && make report` (engine side needs no API key).
 
 ## Secrets & leaks
 - [x] No API keys in tracked files — `grep -rniE 'sk-ant-|sk-[A-Za-z0-9]{20}|AIza[0-9A-Za-z_-]{30}'` over `*.py *.md *.yaml *.json` returns nothing (only `os.environ[...]` references remain).
