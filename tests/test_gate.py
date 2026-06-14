@@ -6,9 +6,12 @@ import pytest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))
 
+from bench.config import pg_url
 from bench.engine_arm2 import completeness_gate
 
-URL = "postgresql+psycopg2://inferah:inferah@localhost:5433/inferah"
+# Same Postgres the rest of the bench uses ($PG_URL, default docker :5544) —
+# so this gate test isn't silently skipped for someone following the README.
+URL = pg_url()
 
 
 def _pg_up():
