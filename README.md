@@ -222,6 +222,11 @@ because the *engine* already computed the answer — the narrator only phrases
 it. The point of the whole design in one line: **put the model where it can't
 fabricate (phrasing), not where it computes the numbers.**
 
+The cost gap holds on the frontier model too (per answer, hard set):
+A·opus **$0.061**, B·opus $0.062, D·opus $0.016, D2·opus **$0.013** — the
+engine path is ~4–5× cheaper regardless of which model narrates, because it
+makes one call instead of ~5–9.
+
 Scope: 3 of 7 types, 3 runs — directional, not a headline grid. Raw per-run
 data is gitignored; the scored summary is
 `results/exploratory_opus_hardset.json`.
