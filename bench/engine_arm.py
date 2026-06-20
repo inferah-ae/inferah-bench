@@ -18,7 +18,7 @@ from inferah_engine import investigate, render, narrate
 from inferah_engine.datasource import PostgresSource
 from inferah_engine.loader import load_pack
 
-from bench.agent import HERE, ANSWER_PROTOCOL, ArmResult, run_tool_loop
+from bench.agent import MODEL, HERE, ANSWER_PROTOCOL, ArmResult, run_tool_loop
 
 PACK_PATH = str(HERE.parent / "cases" / "order_pack.yaml")
 PERIODS = {"0": ("2026-05-04", "2026-05-11"),
@@ -109,8 +109,8 @@ def make_investigate(pg_url: str, schema: str):
 
 
 def run_engine_arm(question: str, pg_url: str, schema: str,
-                   client=None) -> ArmResult:
+                   client=None, model=None) -> ArmResult:
     tool = make_investigate(pg_url, schema)
     return run_tool_loop(ARM_D_SYSTEM, question, [INVESTIGATE_TOOL],
                          {"investigate": tool}, max_tool_calls=3,
-                         client=client)
+                         client=client, model=model or MODEL)

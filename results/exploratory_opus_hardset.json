@@ -1,53 +1,62 @@
 {
-  "note": "EXPLORATORY frontier-model slice \u2014 NOT the headline grid. Hard set only (T3 Simpson / T6 noise / T7 data-gap), arms A/B, 3 runs; engine arms shown for reference. Opus slice cost $4.43.",
+  "note": "EXPLORATORY frontier-model slice \u2014 NOT the headline grid. Hard set only (T3 Simpson / T6 noise / T7 data-gap), 3 runs. claude-opus-4-8 vs claude-sonnet-4-6. Opus slice cost ~$6.5 total (A/B $4.43 + D/D2 ~$2).",
+  "score_all_hard": {
+    "A-opus": 0.95,
+    "A-sonnet": 0.513,
+    "B-opus": 0.917,
+    "B-sonnet": 0.747,
+    "D-opus": 0.775,
+    "D-sonnet": 0.758,
+    "D2-opus": 0.95,
+    "D2-sonnet": 0.95,
+    "D3-code": 0.95
+  },
   "score_by_type": {
     "T3": {
-      "A/opus-4-8": 0.95,
-      "A/sonnet-4-6": 0.85,
-      "B/opus-4-8": 0.933,
-      "B/sonnet-4-6": 0.76,
-      "D": 0.875,
-      "D2": 0.9,
-      "D3": 0.9
+      "A-opus": 0.95,
+      "A-sonnet": 0.85,
+      "B-opus": 0.933,
+      "B-sonnet": 0.76,
+      "D-opus": 0.9,
+      "D-sonnet": 0.875,
+      "D2-opus": 0.9,
+      "D2-sonnet": 0.9,
+      "D3-code": 0.9
     },
     "T6": {
-      "A/opus-4-8": 0.967,
-      "A/sonnet-4-6": 0.245,
-      "B/opus-4-8": 0.867,
-      "B/sonnet-4-6": 0.595,
-      "D": 1.0,
-      "D2": 1.0,
-      "D3": 1.0
+      "A-opus": 0.967,
+      "A-sonnet": 0.245,
+      "B-opus": 0.867,
+      "B-sonnet": 0.595,
+      "D-opus": 1.0,
+      "D-sonnet": 1.0,
+      "D2-opus": 1.0,
+      "D2-sonnet": 1.0,
+      "D3-code": 1.0
     },
     "T7": {
-      "A/opus-4-8": 0.933,
-      "A/sonnet-4-6": 0.445,
-      "B/opus-4-8": 0.95,
-      "B/sonnet-4-6": 0.885,
-      "D": 0.4,
-      "D2": 0.95,
-      "D3": 0.95
+      "A-opus": 0.933,
+      "A-sonnet": 0.445,
+      "B-opus": 0.95,
+      "B-sonnet": 0.885,
+      "D-opus": 0.425,
+      "D-sonnet": 0.4,
+      "D2-opus": 0.95,
+      "D2-sonnet": 0.95,
+      "D3-code": 0.95
     }
   },
-  "score_all_hard": {
-    "A/opus-4-8": 0.95,
-    "A/sonnet-4-6": 0.513,
-    "B/opus-4-8": 0.917,
-    "B/sonnet-4-6": 0.747,
-    "D": 0.758,
-    "D2": 0.95,
-    "D3": 0.95
+  "grounding_pass_AB": {
+    "A-opus": 0.806,
+    "A-sonnet": 0.75,
+    "B-opus": 0.639,
+    "B-sonnet": 0.783
   },
-  "grounding_pass": {
-    "A/opus-4-8": 0.806,
-    "A/sonnet-4-6": 0.75,
-    "B/opus-4-8": 0.639,
-    "B/sonnet-4-6": 0.783
-  },
-  "action_correct": {
-    "A/opus-4-8": 1.0,
-    "A/sonnet-4-6": 0.433,
-    "B/opus-4-8": 1.0,
-    "B/sonnet-4-6": 0.8
+  "engine_arm_narrator_invariance": {
+    "D_sonnet": 0.758,
+    "D_opus": 0.775,
+    "D2_sonnet": 0.95,
+    "D2_opus": 0.95,
+    "D3_code": "model-independent by construction"
   }
 }

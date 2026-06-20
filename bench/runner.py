@@ -51,10 +51,10 @@ def _run_one(case_id, arm, question, pg_url, model=MODEL) -> ArmResult:
         return run_sql_arm_multi(arm, question, pg_url, schema=case_id,
                                  model=model)
     if arm == "D":
-        return run_engine_arm(question, pg_url, schema=case_id)
+        return run_engine_arm(question, pg_url, schema=case_id, model=model)
     if arm == "D2":
         from bench.engine_arm2 import run_engine_arm2
-        return run_engine_arm2(question, pg_url, schema=case_id)
+        return run_engine_arm2(question, pg_url, schema=case_id, model=model)
     if arm == "D3":
         from bench.engine_arm3 import run_engine_arm3
         return run_engine_arm3(question, pg_url, schema=case_id)

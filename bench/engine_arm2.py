@@ -29,7 +29,7 @@ from inferah_engine import investigate
 from inferah_engine.datasource import PostgresSource
 from inferah_engine.loader import load_pack
 
-from bench.agent import ANSWER_PROTOCOL, ArmResult, run_tool_loop
+from bench.agent import MODEL, ANSWER_PROTOCOL, ArmResult, run_tool_loop
 from bench.engine_arm import PACK_PATH, PERIODS, _filters_from_scope
 
 DAY_COVERAGE_MIN = 0.95     # p1 must keep >=95% of p0's day coverage
@@ -224,8 +224,8 @@ def make_investigate2(pg_url: str, schema: str):
 
 
 def run_engine_arm2(question: str, pg_url: str, schema: str,
-                    client=None) -> ArmResult:
+                    client=None, model=None) -> ArmResult:
     tool = make_investigate2(pg_url, schema)
     return run_tool_loop(ARM_D2_SYSTEM, question, [INVESTIGATE2_TOOL],
                          {"investigate": tool}, max_tool_calls=3,
-                         client=client)
+                         client=client, model=model or MODEL)
