@@ -4,7 +4,7 @@
 # arm D's pack (cases/order_pack.yaml) uses the engine's `abstain_if_diffuse`
 # rate-node option. Pinned to a release tag so benchmark results reference an
 # immutable engine commit (reproducibility); bump the tag to re-baseline.
-inferah-engine @ git+https://github.com/inferah-ae/inferah-engine.git@v0.3.2
+inferah-engine @ git+https://github.com/inferah-ae/inferah-engine.git@v0.3.3
 
 anthropic>=0.40
 openai>=1.50          # arm A/B on OpenAI models (optional; needs OPENAI_API_KEY)
