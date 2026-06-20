@@ -197,9 +197,10 @@ def cost_usd(usage: dict) -> float:
 
 
 def run_tool_loop(system: str, question: str, tools: list, executors: dict,
-                  max_tool_calls: int, client=None) -> ArmResult:
+                  max_tool_calls: int, client=None, model: str = MODEL) -> ArmResult:
     """Generic manual agentic loop: run tools until the model stops or the
-    budget runs out, then force a final JSON answer. One re-ask on bad JSON."""
+    budget runs out, then force a final JSON answer. One re-ask on bad JSON.
+    `model` lets the same Anthropic loop run a non-default model (e.g. Opus)."""
     # Hard timeouts: a wedged TCP connection must fail fast and retry, not
     # hang a shard for the SDK's default 10 minutes (observed in the wild).
     if client is None:
@@ -216,7 +217,7 @@ def run_tool_loop(system: str, question: str, tools: list, executors: dict,
 
     def call(**kw):
         resp = client.messages.create(
-            model=MODEL, max_tokens=MAX_TOKENS, temperature=TEMPERATURE,
+            model=model, max_tokens=MAX_TOKENS, temperature=TEMPERATURE,
             system=sys_block, messages=messages, **kw)
         _add_usage(usage, resp.usage)
         return resp
@@ -267,9 +268,10 @@ def run_tool_loop(system: str, question: str, tools: list, executors: dict,
 
 
 def run_sql_arm(arm: str, question: str, pg_url: str, schema: str,
-                client=None) -> ArmResult:
-    """arm 'A' (bare) or 'B' (docs)."""
+                client=None, model: str = MODEL) -> ArmResult:
+    """arm 'A' (bare) or 'B' (docs) on any Anthropic model (default sonnet)."""
     system = {"A": ARM_A_SYSTEM, "B": ARM_B_SYSTEM}[arm]
     run_sql = make_run_sql(pg_url, schema)
     return run_tool_loop(system, question, [RUN_SQL_TOOL],
-                         {"run_sql": run_sql}, MAX_SQL_CALLS, client=client)
+                         {"run_sql": run_sql}, MAX_SQL_CALLS, client=client,
+                         model=model)
