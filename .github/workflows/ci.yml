@@ -1,0 +1,41 @@
+name: ci
+
+# Runs the exact "run it yourself" path on every push: spin Postgres, install
+# from requirements (which pulls the pinned engine tag), seed the 28 cases,
+# and run the full test suite — including the completeness-gate tests that
+# need a real DB. No API key needed (the LLM arms aren't exercised here).
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: inferah
+          POSTGRES_PASSWORD: inferah
+          POSTGRES_DB: inferah
+        ports:
+          - "5544:5432"
+        options: >-
+          --health-cmd "pg_isready -U inferah"
+          --health-interval 2s --health-timeout 3s --health-retries 30
+    env:
+      PG_URL: postgresql+psycopg2://inferah:inferah@localhost:5544/inferah
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install (pulls the pinned engine tag)
+        run: pip install -r requirements.txt
+      - name: Seed the 28 cases
+        run: python -m cases.seed
+      - name: Tests (scoring + completeness gate)
+        run: pytest -q
+      - name: Engine side reproduces (no API key)
+        run: python -m bench.cli report
