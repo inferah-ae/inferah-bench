@@ -1,5 +1,7 @@
 # inferah-bench
 
+[![ci](https://github.com/inferah-ae/inferah-bench/actions/workflows/ci.yml/badge.svg)](https://github.com/inferah-ae/inferah-bench/actions/workflows/ci.yml)
+
 A controlled benchmark for **causal correctness** of LLM answers to *"why did
 this metric change?"* — the everyday analytics question where a confident,
 plausible, wrong answer is worse than no answer.
