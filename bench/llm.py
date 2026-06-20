@@ -5,8 +5,10 @@ The agentic loop SEMANTICS are frozen from v0 (see bench/agent.py):
 at most MAX_SQL_CALLS tool calls, temperature 0, forced final JSON answer,
 one "return only JSON" retry, then parse_error. This module changes ONLY the
 transport underneath: the same frozen prompts and the same run_sql tool run
-against Anthropic or OpenAI models (Google: stub, implemented when a key is
-available). Tool schemas are converted per provider; behavior is identical.
+against Anthropic, OpenAI, or Google models. Tool schemas are converted per
+provider; behavior is identical. Verification status: OpenAI (gpt-5.5) and
+Google (gemini-3.1-pro-preview) each answered one case end to end; no full
+non-Anthropic grid has been run.
 
 Anthropic models keep going through bench/agent.run_tool_loop (the exact v0
 code path) so prior results remain byte-comparable; this module routes only

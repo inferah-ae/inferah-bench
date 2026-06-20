@@ -29,10 +29,13 @@ immutable, re-runnable state.
 - Headline grid (28 cases × 5 runs) is graded on `claude-sonnet-4-6`. A
   frontier-model probe (`claude-opus-4-8`, hard set) is in the README's
   exploratory section, clearly separated from the headline.
-- Multi-provider transport (OpenAI + Google) is implemented and verified on
-  single calls; a full non-Anthropic headline grid is left to anyone with a
-  funded key. Cross-provider generalization is stated as a hypothesis
-  (README limitation c2).
+- Multi-provider transport (OpenAI + Google) is implemented and smoke-tested
+  (each answered one case end to end — a single call, nothing more); there is
+  no scored non-Anthropic headline grid. Left to anyone with a funded key.
+  Cross-provider generalization is stated as a hypothesis (README limitation c2).
+- The score has a high trivial-baseline floor (~0.47) and a coarse grounding
+  gate; compare gaps and non-overlapping CIs, not absolute numbers. See
+  `results/headline_stats.json` and `python -m bench.stats`.
 
 ## Frozen vs. iterated
 - Cases, labels (ground-truth values), scoring, and the arm A/B/D2 prompts are
