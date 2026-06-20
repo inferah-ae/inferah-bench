@@ -106,7 +106,8 @@ def _label(case_id, ctype, action, drivers=None, abstain_reason=None,
 
 def _driver(dimension=None, segment=None, factor=None, mechanism=None,
             share_of_move=1.0):
-    return {"axis": mechanism, "dimension": dimension, "segment": segment,
+    # Scored fields only — dimension / segment / factor / mechanism / share.
+    return {"dimension": dimension, "segment": segment,
             "factor": factor, "mechanism": mechanism,
             "share_of_move": share_of_move}
 

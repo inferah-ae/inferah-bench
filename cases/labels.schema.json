@@ -27,7 +27,6 @@
                            "share_of_move"],
               "additionalProperties": false,
               "properties": {
-                "axis": {"type": ["string", "null"]},
                 "dimension": {"type": ["string", "null"],
                               "enum": ["country", "city", "category",
                                        "order_type", null]},

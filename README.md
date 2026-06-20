@@ -164,12 +164,28 @@ half credit; parse failure → 0).
 | version | change | arms touched |
 |---|---|---|
 | **v0** | initial grid: A, B, D (engine tool → rendered text → LLM narrates) | A, B, D |
-| **v0.2** | audit of D's failures (26 narrator-error, 0 engine-error) → **D2**: structured JSON narrator interface + one completeness gate | **D2 only**; A/B/D frozen |
+| **v0.2** | audit of D's failures → **D2**: structured JSON narrator interface + one completeness gate | **D2 only**; A/B/D frozen |
 | **v0.3** | **D3**: replace the LLM narrator with a pure code mapping (zero LLM in the answer loop); multi-model transport for A/B; run-it-yourself packaging | **D3 only**; A/B/D/D2 frozen |
 
-Arms A and B — their prompts, the cases, the labels, and the scoring — have
-not changed since v0. Arm D was iterated (v0 → D2 → D3); **all versions stay
-in the table** for honest methodology.
+### What the v0.2 audit found (`results/audit_d_v0.json`)
+
+I audited every imperfect D run and bucketed it: **26 narrator-error, 0
+engine-error, 14 "label-error".** The 14 are **not wrong labels** — the bucket
+name means "the engine's decomposition was correct and the narrator reported
+it faithfully, but the deterministic label is *stricter* than a greedy walk can
+satisfy." All 14 are the known **T5-compound / T2 partial-credit** case: the
+label correctly wants *both* drivers (or full share), while the engine's greedy
+walk reports the single dominant one — the limitation already stated in
+Limitation (d). So: **0 labels were changed, 0 ground-truth values edited, and
+arms A/B were not re-run** as a result of the audit. The audit is committed so
+you can check this yourself.
+
+Arms A and B — their prompts, the cases, the scoring, and the ground-truth
+**values** in `labels.json` — have not changed since v0. (The only post-v0
+edit to `labels.json` was dropping a redundant, non-scored `axis` field that
+duplicated `mechanism`; no `action` / `dimension` / `segment` / `factor` /
+`mechanism` / `share` value changed — verifiable by diff.) Arm D was iterated
+(v0 → D2 → D3); **all versions stay in the table** for honest methodology.
 
 ## Limitations (stated plainly)
 
