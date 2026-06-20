@@ -1,0 +1,67 @@
+{
+  "arms": {
+    "A/claude-sonnet-4-6": {
+      "mean": 0.7,
+      "ci95": [
+        0.601,
+        0.796
+      ],
+      "n_cases": 28
+    },
+    "B/claude-sonnet-4-6": {
+      "mean": 0.704,
+      "ci95": [
+        0.618,
+        0.783
+      ],
+      "n_cases": 28
+    },
+    "D": {
+      "mean": 0.779,
+      "ci95": [
+        0.683,
+        0.872
+      ],
+      "n_cases": 28
+    },
+    "D2": {
+      "mean": 0.903,
+      "ci95": [
+        0.843,
+        0.956
+      ],
+      "n_cases": 28
+    },
+    "D3": {
+      "mean": 0.936,
+      "ci95": [
+        0.886,
+        0.979
+      ],
+      "n_cases": 28
+    }
+  },
+  "trivial_baselines": {
+    "always_abstain_data_gap": {
+      "mean": 0.471,
+      "ci95": [
+        0.375,
+        0.579
+      ]
+    },
+    "always_explain_broad_aov_rate": {
+      "mean": 0.475,
+      "ci95": [
+        0.411,
+        0.543
+      ]
+    },
+    "always_no_driver": {
+      "mean": 0.425,
+      "ci95": [
+        0.325,
+        0.525
+      ]
+    }
+  }
+}

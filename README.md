@@ -10,8 +10,11 @@ plausible, wrong answer is worse than no answer.
 real Postgres table, can an agent name the *actual* driver — or honestly
 abstain when the cause is outside the data? Every case has **ground truth by
 construction** (the driver is injected by the generator), so scoring is
-**deterministic** — no LLM-judge, no rubric drift. The scorer also recomputes
-every number the agent cites straight from Postgres and fails fabrications.
+**deterministic** — no LLM-judge, no rubric drift. The scorer also checks every
+number the agent cites against the values that actually exist in the case
+(recomputed from Postgres) and fails **gross** fabrications — numbers no real
+aggregate comes near. It is a coarse hallucination filter, not an exact
+per-number audit (see the grounding caveat under *Scoring*).
 
 **What it compares.** A bare SQL agent, the same agent handed exhaustive
 documentation, and an agent whose only tool is a deterministic decomposition
@@ -21,17 +24,33 @@ them?*
 
 ## Headline result
 
-Mean score (0–1), 28 cases × 5 runs, temperature 0:
+Mean score (0–1), 28 cases × 5 runs, temperature 0, with **95% CIs** from a
+cluster bootstrap over the 28 cases (runs within a case aren't independent).
+A **trivial baseline** is included so the floor is explicit — the score has a
+high built-in floor (3-class action with an exploitable base rate, plus a
+grounding gate that's easy to pass; see below), so read the *gaps*, not the
+absolute numbers.
 
-| arm | what it is | model | **ALL** |
+| arm | what it is | model | **ALL** (95% CI) |
 |---|---|---|---|
-| **A** | bare agent, `run_sql` only | claude-sonnet-4-6 | 0.70 |
-| **B** | agent + exhaustive docs, `run_sql` | claude-sonnet-4-6 | 0.70 |
-| **D** | agent + engine, LLM narrates text (v0) | claude-sonnet-4-6 | 0.78 |
-| **D2** | agent + engine, LLM narrates JSON + completeness gate (v0.2) | claude-sonnet-4-6 | 0.90 |
-| **D3** | engine + **code** narrator, zero LLM in the answer loop (v0.3) | — (deterministic) | **0.94** |
+| _trivial baseline_ | _always "broad explain" / always abstain_ | _—_ | _~0.47_ |
+| **A** | bare agent, `run_sql` only | claude-sonnet-4-6 | 0.70 [0.60, 0.80] |
+| **B** | agent + exhaustive docs, `run_sql` | claude-sonnet-4-6 | 0.70 [0.62, 0.78] |
+| **D** | agent + engine, LLM narrates text (v0) | claude-sonnet-4-6 | 0.78 [0.68, 0.87] |
+| **D2** | agent + engine, JSON narrator + completeness gate (v0.2) | claude-sonnet-4-6 | 0.90 [0.84, 0.96] |
+| **D3** | engine + **code** narrator, zero LLM (v0.3) | — (deterministic) | **0.94 [0.89, 0.98]** |
 
-By failure type:
+**What is and isn't separable at n=28.** The engine-**with-a-gate** arms (D2,
+D3) clear the SQL agent decisively — their CIs don't overlap A's. The plain
+engine arm **D (0.78) is *not* statistically distinguishable from A (0.70)** —
+the CIs overlap. So the honest claim is *"a deterministic engine **plus a
+verification gate** beats the SQL agent,"* not "any engine output beats it."
+Numbers + bootstrap: [`results/headline_stats.json`](results/headline_stats.json)
+(`python -m bench.stats`).
+
+By failure type — **directional only**: each cell is 4 cases, so one flipped
+case moves a cell by 0.25. Don't read per-type pairwise differences as
+significant; they motivated the design, they don't prove it.
 
 | type | injected cause | A | B | D | D2 | D3 |
 |---|---|---|---|---|---|---|
@@ -72,29 +91,30 @@ So a deterministic answer is **~4.7× cheaper** than the bare agent with the
 LLM narrator (D2), and **free** as pure code (D3) — at higher honesty and
 perfect reproducibility. Numbers: `results/cost_per_answer.json`.
 
-*(Single-model grid. The multi-provider transport is implemented and verified
-on single calls for OpenAI and Google — `bench/llm.py`; arms A/B run on
-`gpt-5.5` and `gemini-3.1-pro-preview` end to end on one case each. A full
-non-Anthropic grid was not run on budget: in this agentic harness gpt-5.5
-costs ≈ $28 for 280 cells — each case re-sends the growing transcript + the
-large arm-B doc across up to 15 tool calls, with no OpenAI-side prompt cache,
-and gpt-5.5 also emits ~2.3k reasoning tokens/cell — and the Gemini key was
-free-tier (quota-exhausted under load). Add models via `BENCH_MODELS` on a
-funded key and re-run; the columns appear automatically.)*
+*(Single-model headline. The multi-provider transport (`bench/llm.py`) is
+**implemented** for OpenAI and Google and **smoke-tested** — `gpt-5.5` and
+`gemini-3.1-pro-preview` each answered **one** case end to end (a single call),
+nothing more. There is **no scored non-Anthropic grid**: gpt-5.5 ≈ $28 for 280
+cells in this agentic harness (growing transcript re-sent across ~15 tool calls,
+no OpenAI prompt cache, ~2.3k reasoning tokens/cell), and the Gemini key was
+free-tier and quota-exhausted under grid load. The OpenAI hard-set slice below
+is the only multi-model data with real coverage. Add models via `BENCH_MODELS`
+on a funded key and re-run.)*
 
-Three findings:
-1. **Exhaustive documentation did not raise the average** (A 0.70 → B 0.70).
-   It cured the tail (noise T6 0.24→0.60, data gaps T7 0.44→0.88) and broke
-   the middle by the same caution (T2 0.89→0.41: false "no driver" on real,
-   uniformly-spread drivers). Docs *reshuffle* errors; they don't remove them.
-2. **The bare agent confidently explains noise** in ~70% of T6 runs and
-   fabricates a cited number in up to 75% of T5 runs.
-3. **The deterministic layer wins on honesty, stability, and cost** —
-   abstains correctly when the cause is off-data, never invents an
-   explanation, reproduces exactly, and (as code, D3) costs nothing. The LLM
-   narrator (D2) only *degraded* the engine's output; replacing it with code
-   (D3) was a strict improvement everywhere (audit: 26 narrator errors, 0
-   engine errors).
+Three findings (on this benchmark; gaps read against the ~0.47 trivial floor):
+1. **Exhaustive documentation did not raise the average** (A 0.70 → B 0.70,
+   overlapping CIs). It cured the tail (noise T6 0.24→0.60, data gaps
+   T7 0.44→0.88) and broke the middle by the same caution (T2 0.89→0.41: false
+   "no driver" on real, uniformly-spread drivers). Docs *reshuffle* errors;
+   they don't remove them.
+2. **The bare agent confidently explains noise** in ~70% of T6 runs (directional,
+   4 cases) and, on the harder cases, cites numbers grossly outside the data.
+3. **The engine *with a verification gate* (D2/D3) clears the SQL agent** —
+   CIs don't overlap A's, whereas the plain engine arm D (0.78) is *not*
+   separable from A (0.70) at n=28. The gated layer abstains correctly when
+   the cause is off-data, never invents an explanation, reproduces exactly,
+   and (as code, D3) costs nothing. The LLM narrator (D2) only *degraded* the
+   engine's output vs. code (D3); the v0.2 audit found 0 engine errors.
 
 ## Quick start (run it yourself)
 
@@ -159,6 +179,18 @@ scored. Matching rules are frozen and documented in the module docstring
 (string normalization; factor-child credit; T5 partial credit; abstain-reason
 half credit; parse failure → 0).
 
+**Grounding is a coarse filter — know its limits.** It passes a cited number
+if it's within 2% (or an absolute 0.05) of *any* value in a per-case "fact
+bank" recomputed from Postgres. That bank is large (median ~150 values, up to
+~600 per case), and the 0.05 absolute floor effectively whitelists the entire
+`share_of_move` range [0,1] — so a share that's off by ~0.04 still passes, and
+a trivial agent that cites one real number (or cites nothing on an abstain)
+scores grounding **1.00**. Empirically it still bites real LLMs (arms A/B land
+0.56–0.79, citing grossly out-of-range numbers), so it's a useful
+**gross-hallucination** filter — but it is **not** an exact per-number audit,
+and ~20% of the weight is close to free for a careful agent. The included
+trivial baseline (~0.47) exists precisely to make that floor visible.
+
 ## Methodology — what changed across versions
 
 | version | change | arms touched |
@@ -207,6 +239,13 @@ duplicated `mechanism`; no `action` / `dimension` / `segment` / `factor` /
 - **(d) Compound cases (T5).** The engine's greedy walk reports the single
   dominant driver, not both — a known limitation (engine roadmap:
   multi-driver decomposition), not a scoring artifact.
+- **(e) The scorer has a high floor and a coarse grounding gate.** A
+  zero-intelligence agent scores ~0.47 (3-class action with an exploitable
+  base rate; grounding ~free for a careful agent; sum-share free for
+  non-explain). So absolute numbers overstate ability — compare *gaps* against
+  the trivial baseline, and trust only non-overlapping CIs (which is why the
+  defensible claim is D2/D3 > SQL-agent, not D > A). Tightening grounding and
+  adding a held-out floor are v0.4 work.
 
 ## Exploratory: a frontier model (Opus 4.8) on the hard set
 
