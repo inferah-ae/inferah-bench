@@ -165,15 +165,43 @@ in the table** for honest methodology.
   and are very likely improvable by better prompting. The asymmetry is
   disclosed, all D versions are shown, and A/B prompts are in the repo for
   anyone to improve.
-- **(c2) Single-model results.** Arms A/B were fully run only on
-  `claude-sonnet-4-6`, so "LLM agents are confidently wrong" is, strictly,
-  shown for one model. The multi-provider transport is built and verified on
-  single calls (OpenAI + Google); the full cross-model grid is left to anyone
-  with a funded key (see the note under the components table). Until then the
-  generalization across providers is a hypothesis, not a result.
+- **(c2) Single-model headline.** The headline grid was fully run only on
+  `claude-sonnet-4-6`. A stronger model narrows the gap a lot — see the
+  exploratory Opus 4.8 slice below. The full cross-model headline grid is left
+  to anyone with a funded key (the multi-provider transport is in the repo).
 - **(d) Compound cases (T5).** The engine's greedy walk reports the single
   dominant driver, not both — a known limitation (engine roadmap:
   multi-driver decomposition), not a scoring artifact.
+
+## Exploratory: a frontier model (Opus 4.8) on the hard set
+
+Not the headline grid — a separate, smaller probe: arms A/B on
+**`claude-opus-4-8`** over only the three hard types (T3 Simpson, T6 noise,
+T7 data-gap), 3 runs each (72 cells, $4.43, 0 errors). Engine arms shown for
+reference. Mean score:
+
+| (T3/T6/T7) | A·sonnet | **A·opus** | B·sonnet | **B·opus** | D | D2 | D3 |
+|---|---|---|---|---|---|---|---|
+| ALL hard | 0.51 | **0.95** | 0.75 | **0.92** | 0.76 | 0.95 | 0.95 |
+
+**A frontier model closes most of the accuracy gap.** Opus 4.8 (bare agent)
+goes 0.51 → 0.95 on the hard set and stops confidently explaining noise
+(T6 0.24 → 0.97; action-correct 0.43 → 1.00) — roughly matching the
+deterministic engine on *accuracy* here. The honest takeaway is **not**
+"models are bad." It's that the engine's edge is **verification, not raw
+accuracy**, and those properties don't come for free with a better model:
+
+- **Grounding.** Opus still cites numbers absent from the data — grounding
+  passes only 0.81 (arm A) / **0.64** (arm B, *worse* than Sonnet's 0.78).
+  The engine never fabricates a number (grounded by construction).
+- **Cost.** Opus ≈ $0.06/cell; the code-narrator engine path (D3) is $0.
+- **Reproducibility.** Opus modal-answer stability 0.97; the engine is 1.00.
+- **Scope.** This is 3 of 7 types, 3 runs — directional, not a headline grid.
+
+So the launch claim stays bounded: *frontier models help a lot, but a
+deterministic layer is what makes an answer cheap, reproducible, fabrication-
+free, and honest about abstaining.* Raw per-run data is gitignored; the scored
+summary is `results/exploratory_opus_hardset.json`.
 
 ## Not included
 

@@ -214,11 +214,26 @@ def run_tool_loop(system: str, question: str, tools: list, executors: dict,
     usage = {"input_tokens": 0, "output_tokens": 0, "cache_read": 0,
              "cache_write": 0}
     transcript, n_calls = [], 0
+    # Opus 4.7/4.8, Fable 5 removed sampling params -> 400 on temperature.
+    # Drop it once and remember (Sonnet 4.6 keeps temperature=0).
+    use_temp = [True]
 
     def call(**kw):
-        resp = client.messages.create(
-            model=model, max_tokens=MAX_TOKENS, temperature=TEMPERATURE,
-            system=sys_block, messages=messages, **kw)
+        if use_temp[0]:
+            kw["temperature"] = TEMPERATURE
+        try:
+            resp = client.messages.create(
+                model=model, max_tokens=MAX_TOKENS,
+                system=sys_block, messages=messages, **kw)
+        except Exception as e:
+            if use_temp[0] and "temperature" in str(e).lower():
+                use_temp[0] = False
+                kw.pop("temperature", None)
+                resp = client.messages.create(
+                    model=model, max_tokens=MAX_TOKENS,
+                    system=sys_block, messages=messages, **kw)
+            else:
+                raise
         _add_usage(usage, resp.usage)
         return resp
 
