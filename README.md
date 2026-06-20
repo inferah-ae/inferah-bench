@@ -175,33 +175,37 @@ in the table** for honest methodology.
 
 ## Exploratory: a frontier model (Opus 4.8) on the hard set
 
-Not the headline grid — a separate, smaller probe: arms A/B on
-**`claude-opus-4-8`** over only the three hard types (T3 Simpson, T6 noise,
-T7 data-gap), 3 runs each (72 cells, $4.43, 0 errors). Engine arms shown for
-reference. Mean score:
+Not the headline grid — a separate, smaller probe: every arm on
+**`claude-opus-4-8`** vs `claude-sonnet-4-6` over only the three hard types
+(T3 Simpson, T6 noise, T7 data-gap), 3 runs each (~$6.5, 0 errors). Mean
+score on the hard set:
 
-| (T3/T6/T7) | A·sonnet | **A·opus** | B·sonnet | **B·opus** | D | D2 | D3 |
-|---|---|---|---|---|---|---|---|
-| ALL hard | 0.51 | **0.95** | 0.75 | **0.92** | 0.76 | 0.95 | 0.95 |
+| (T3/T6/T7) | A·sonnet | **A·opus** | B·sonnet | **B·opus** | D·sonnet | D·opus | D2·sonnet | D2·opus | D3·code |
+|---|---|---|---|---|---|---|---|---|---|
+| ALL hard | 0.51 | **0.95** | 0.75 | **0.92** | 0.76 | 0.77 | 0.95 | 0.95 | 0.95 |
 
-**A frontier model closes most of the accuracy gap.** Opus 4.8 (bare agent)
-goes 0.51 → 0.95 on the hard set and stops confidently explaining noise
-(T6 0.24 → 0.97; action-correct 0.43 → 1.00) — roughly matching the
-deterministic engine on *accuracy* here. The honest takeaway is **not**
-"models are bad." It's that the engine's edge is **verification, not raw
-accuracy**, and those properties don't come for free with a better model:
+Two findings, both pointing the same way:
 
-- **Grounding.** Opus still cites numbers absent from the data — grounding
-  passes only 0.81 (arm A) / **0.64** (arm B, *worse* than Sonnet's 0.78).
-  The engine never fabricates a number (grounded by construction).
-- **Cost.** Opus ≈ $0.06/cell; the code-narrator engine path (D3) is $0.
-- **Reproducibility.** Opus modal-answer stability 0.97; the engine is 1.00.
-- **Scope.** This is 3 of 7 types, 3 runs — directional, not a headline grid.
+**1. A frontier model closes most of the SQL-agent gap.** Opus 4.8 (bare
+agent) goes 0.51 → 0.95 and stops confidently explaining noise (T6 0.24 →
+0.97; action-correct 0.43 → 1.00) — roughly matching the engine on *accuracy*
+here. So the honest framing is **not** "models are bad." But the engine's edge
+is **verification, not raw accuracy**, and that doesn't come free with a better
+model: Opus still cites numbers absent from the data (grounding 0.81 arm A /
+**0.64** arm B — *worse* than Sonnet), costs ≈ $0.06/cell vs $0 for the
+code-narrator path, and is less reproducible (stability 0.97 vs 1.00).
 
-So the launch claim stays bounded: *frontier models help a lot, but a
-deterministic layer is what makes an answer cheap, reproducible, fabrication-
-free, and honest about abstaining.* Raw per-run data is gitignored; the scored
-summary is `results/exploratory_opus_hardset.json`.
+**2. The engine arms are narrator-invariant.** Swapping the engine's LLM
+narrator from Sonnet to Opus moves nothing: **D2 Δ 0.000**, D Δ +0.017
+(text-phrasing noise), and D3 has no LLM at all. The SQL arms swing ~0.4 with
+the model because the *model* does the reasoning; the engine arms don't move
+because the *engine* already computed the answer — the narrator only phrases
+it. The point of the whole design in one line: **put the model where it can't
+fabricate (phrasing), not where it computes the numbers.**
+
+Scope: 3 of 7 types, 3 runs — directional, not a headline grid. Raw per-run
+data is gitignored; the scored summary is
+`results/exploratory_opus_hardset.json`.
 
 ## Not included
 

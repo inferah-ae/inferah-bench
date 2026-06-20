@@ -20,3 +20,5 @@ LAUNCH.md
 results/opus_A.jsonl
 results/opus_B.jsonl
 results/opus_*.log
+results/opus_D.jsonl
+results/opus_D2.jsonl
