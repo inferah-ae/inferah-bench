@@ -1,0 +1,33 @@
+{
+  "A/sonnet": {
+    "cost_usd_per_answer": 0.0447,
+    "input_tokens": 3047,
+    "output_tokens": 1832,
+    "tool_calls": 8.3
+  },
+  "B/sonnet": {
+    "cost_usd_per_answer": 0.0481,
+    "input_tokens": 2920,
+    "output_tokens": 2007,
+    "tool_calls": 9.1
+  },
+  "D": {
+    "cost_usd_per_answer": 0.0112,
+    "input_tokens": 92,
+    "output_tokens": 507,
+    "tool_calls": 1.0
+  },
+  "D2": {
+    "cost_usd_per_answer": 0.0095,
+    "input_tokens": 4,
+    "output_tokens": 420,
+    "tool_calls": 1.0
+  },
+  "D3": {
+    "cost_usd_per_answer": 0.0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "tool_calls": 1.0
+  },
+  "_note": "Mean per answered case over the headline grid (28 cases x 5 runs, claude-sonnet-4-6 for A/B/D/D2; D3 is pure code). Anthropic prompt cache active for the LLM arms."
+}
