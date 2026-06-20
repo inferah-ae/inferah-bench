@@ -15,3 +15,8 @@ results/partial_multimodel.jsonl
 
 # local launch draft, not for the repo
 LAUNCH.md
+
+# exploratory frontier-model raw runs (summary in exploratory_opus_hardset.json is committed)
+results/opus_A.jsonl
+results/opus_B.jsonl
+results/opus_*.log
