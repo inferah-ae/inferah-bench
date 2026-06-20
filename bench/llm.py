@@ -25,6 +25,7 @@ from bench.agent import (ANSWER_PROTOCOL, ARM_A_SYSTEM, ARM_B_SYSTEM,
 # run; unknown models cost 0 with a loud warning in the report.
 PRICES = {
     "claude-sonnet-4-6": (3.00, 15.00, 0.30),
+    "claude-opus-4-8": (5.00, 25.00, 0.50),
     "gpt-5.2": (1.25, 10.00, 0.125),
     "gpt-5.2-pro": (15.00, 120.00, 1.50),
     "gpt-5-mini": (0.25, 2.00, 0.025),

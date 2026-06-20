@@ -41,11 +41,15 @@ def load_cache(path=RAW_PATH) -> dict:
 
 def _run_one(case_id, arm, question, pg_url, model=MODEL) -> ArmResult:
     if arm in ("A", "B"):
-        if model != MODEL:
-            from bench.llm import run_sql_arm_multi
-            return run_sql_arm_multi(arm, question, pg_url, schema=case_id,
-                                     model=model)
-        return run_sql_arm(arm, question, pg_url, schema=case_id)
+        from bench.llm import provider_of
+        # Anthropic models (incl. non-default like Opus) use the native loop;
+        # other providers go through the multi-provider transport.
+        if provider_of(model) == "anthropic":
+            return run_sql_arm(arm, question, pg_url, schema=case_id,
+                               model=model)
+        from bench.llm import run_sql_arm_multi
+        return run_sql_arm_multi(arm, question, pg_url, schema=case_id,
+                                 model=model)
     if arm == "D":
         return run_engine_arm(question, pg_url, schema=case_id)
     if arm == "D2":

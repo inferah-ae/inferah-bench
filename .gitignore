@@ -12,3 +12,6 @@ results/raw.jsonl
 results/shard_*.jsonl
 results/shard_*.log
 results/partial_multimodel.jsonl
+
+# local launch draft, not for the repo
+LAUNCH.md
