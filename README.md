@@ -53,6 +53,25 @@ Components:
 | D2 / sonnet-4-6 | 1.00 | 0.82 | 0.89 | 0.96 | 0.94 | 0.010 |
 | **D3 / code** | **1.00** | **0.89** | 0.89 | **1.00** | **1.00** | **0.00** |
 
+### Cost per hypothesis (one answered "why did it move?")
+
+Mean over the headline grid (28 cases × 5 runs; Anthropic prompt cache on for
+the LLM arms). The SQL arms spend ~9 tool-calls re-sending a growing
+transcript; the engine arms make one call and the narrator only phrases the
+result — D3 makes none.
+
+| arm | tokens in / out | tool-calls | **$ / answer** | vs A |
+|---|---|---|---|---|
+| A / sonnet-4-6 | ~3,047 / 1,832 | 8.3 | $0.0447 | 1.0× |
+| B / sonnet-4-6 | ~2,920 / 2,007 | 9.1 | $0.0481 | 1.1× |
+| D / sonnet-4-6 | ~92 / 507 | 1 | $0.0112 | 0.25× |
+| D2 / sonnet-4-6 | ~4 / 420 | 1 | $0.0095 | **0.21×** |
+| **D3 / code** | 0 / 0 | 1 | **$0.0000** | **free** |
+
+So a deterministic answer is **~4.7× cheaper** than the bare agent with the
+LLM narrator (D2), and **free** as pure code (D3) — at higher honesty and
+perfect reproducibility. Numbers: `results/cost_per_answer.json`.
+
 *(Single-model grid. The multi-provider transport is implemented and verified
 on single calls for OpenAI and Google — `bench/llm.py`; arms A/B run on
 `gpt-5.5` and `gemini-3.1-pro-preview` end to end on one case each. A full
