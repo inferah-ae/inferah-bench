@@ -20,12 +20,18 @@ per-number audit (see the grounding caveat under *Scoring*).
 documentation, and an agent whose only tool is a deterministic decomposition
 engine ([inferah-engine](https://github.com/inferah-ae/inferah-engine)). The
 question it answers: *do docs cure confident wrongness — and what's left after
-them?*
+them?* Note all arms get the *method* in their answer protocol (the
+volume/rate/mix vocabulary and the GMV identity) — so this measures **reliable
+execution and verification, not knowledge of the method**. The LLM arms are if
+anything handed an advantage; the gap is about whether the answer can be
+trusted, not whether the model knows what a mix effect is.
 
 ## Headline result
 
-Mean score (0–1), 28 cases × 5 runs, temperature 0, with **95% CIs** from a
-cluster bootstrap over the 28 cases (runs within a case aren't independent).
+Mean score (0–1) over **n = 28 cases** (the replication unit) with **95% CIs**
+from a cluster bootstrap over those cases. Each case is run 5× at temperature 0,
+but the runs are correlated (mean modal-share 0.71, not 5/5), so they are
+summarized as *stability*, not treated as 140 independent samples.
 A **trivial baseline** is included so the floor is explicit — the score has a
 high built-in floor (3-class action with an exploitable base rate, plus a
 grounding gate that's easy to pass; see below), so read the *gaps*, not the
@@ -228,6 +234,13 @@ duplicated `mechanism`; no `action` / `dimension` / `segment` / `factor` /
   That is a conflict of interest — which is exactly why this is public with a
   one-method plug-in interface: **run it, add your agent, and try to beat or
   break it.** PRs that improve any arm or add a case are welcome.
+- **(b2) The completeness gate is bench-glue co-designed with the abstain
+  cases.** Arms D2/D3 wrap the engine in a small bench-side heuristic
+  (`completeness_gate`, with hand-set thresholds) that detects exactly the
+  missing-day / missing-segment conditions T4/T7 inject. So a meaningful part
+  of D2/D3's advantage on T4/T7 is a detector written against its own test
+  cases, not the decomposition engine itself. The engine's *intrinsic* honesty
+  win is the residual/diffuse abstain on T4; the data-gap gate is harness code.
 - **(c) Arm D was iterated twice (v0 → D2 → D3); arms A/B were frozen at v0**
   and are very likely improvable by better prompting. The asymmetry is
   disclosed, all D versions are shown, and A/B prompts are in the repo for
@@ -236,9 +249,20 @@ duplicated `mechanism`; no `action` / `dimension` / `segment` / `factor` /
   `claude-sonnet-4-6`. A stronger model narrows the gap a lot — see the
   exploratory Opus 4.8 slice below. The full cross-model headline grid is left
   to anyone with a funded key (the multi-provider transport is in the repo).
-- **(d) Compound cases (T5).** The engine's greedy walk reports the single
-  dominant driver, not both — a known limitation (engine roadmap:
-  multi-driver decomposition), not a scoring artifact.
+- **(d) The engine's greedy walk has two known failure modes — both shown in
+  the numbers, not hidden.**
+  - *Compound (T5):* it reports the single dominant driver, not both.
+  - *Mix masked as volume (case_10, T3):* it drills the largest-moving segment
+    *before* running the rate/mix test, so when a mix effect concentrates in
+    one gross-dominant segment it reports a confident **volume** verdict in the
+    wrong segment. On case_10 (orders relocated electronics→grocery), the
+    engine says `electronics / buyers / volume` while the truth is
+    `grocery / aov / mix` — `driver_score = 0.00`, and the T3 average of 0.90
+    already reflects this miss. Root cause: traversal order gates segment-drill
+    on *gross* |Δ| instead of running Simpson first / gating on the
+    *reconciled* contribution. Engine roadmap (inferah-engine): run rate/mix
+    before the dominance drill. This is in the arm sold as "put the model where
+    it can't fabricate" — so it's stated plainly.
 - **(e) The scorer has a high floor and a coarse grounding gate.** A
   zero-intelligence agent scores ~0.47 (3-class action with an exploitable
   base rate; grounding ~free for a careful agent; sum-share free for
