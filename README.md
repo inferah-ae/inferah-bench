@@ -143,6 +143,9 @@ Re-running never re-burns tokens: every (case, arm, run, model) is cached in
 and the data are free/deterministic, so `make seed && make report` reproduces
 the engine side with no key at all.
 
+What's pinned, verified, and what ships vs. what regenerates is tracked in
+[`STATUS.md`](STATUS.md).
+
 ### Plug in your own agent
 
 Implement one method and the scorer treats you like a built-in arm:
